@@ -35,9 +35,8 @@ DEFAULTS = {
     "sql_to_sao": 0.60,
     "win_rate": 0.20,
     "sales_cycle_days": 90,
-    "capture_share": 0.60,
+    "creation_share": 0.30,
     "cost_per_mql_capture": 300,
-    "cost_per_mql_creation": 450,
     "channels": ["Google Ads", "Microsoft Ads", "LinkedIn Ads"],
     "crm": "HubSpot",
     "competitors": [],
@@ -52,15 +51,14 @@ LABELS = {
     "sql_to_sao": "SQL to SAO rate",
     "win_rate": "win rate",
     "sales_cycle_days": "sales cycle",
-    "capture_share": "capture/creation split",
-    "cost_per_mql_capture": "capture cost per MQL",
-    "cost_per_mql_creation": "creation cost per MQL",
+    "creation_share": "creation share of budget",
+    "cost_per_mql_capture": "cost per MQL from capture channels",
     "channels": "channels",
     "crm": "CRM",
     "competitors": "competitors",
     "icp": "ICP",
 }
-NUMERIC = ("mql_to_sql", "sql_to_sao", "win_rate", "sales_cycle_days", "capture_share", "cost_per_mql_capture", "cost_per_mql_creation")
+NUMERIC = ("mql_to_sql", "sql_to_sao", "win_rate", "sales_cycle_days", "creation_share", "cost_per_mql_capture")
 # A channel counts as demand capture if its name contains one of these; everything else is creation.
 CAPTURE_WORDS = ("google", "microsoft", "bing", "search", "seo", "aeo", "geo", "g2", "capterra", "review")
 MONTHS = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()
@@ -81,13 +79,19 @@ def resolve(raw):
         raise ValueError("Enter a pipeline_goal (or a revenue_goal).")
     if empty(raw.get("deal_size")):
         raise ValueError("Enter deal_size (average first-year deal value).")
+    raw = dict(raw)
+    if empty(raw.get("creation_share")) and not empty(raw.get("capture_share")):
+        c = float(raw["capture_share"])  # older input name
+        raw["creation_share"] = 1 - (c / 100 if c > 1 else c)
     inp = dict(DEFAULTS)
     inp.update({k: v for k, v in raw.items() if not empty(v)})
     inp["defaulted"] = [k for k in DEFAULTS if empty(raw.get(k))]
-    for k in ("mql_to_sql", "sql_to_sao", "win_rate", "capture_share"):
+    for k in ("mql_to_sql", "sql_to_sao", "win_rate", "creation_share"):
         v = float(inp[k])
         inp[k] = v / 100 if v > 1 else v  # accept 25 or 0.25
-    for k in ("pipeline_goal", "revenue_goal", "deal_size", "cost_per_mql_capture", "cost_per_mql_creation"):
+    if not 0 <= inp["creation_share"] < 1:
+        raise ValueError("creation_share must be from 0 to under 100%.")
+    for k in ("pipeline_goal", "revenue_goal", "deal_size", "cost_per_mql_capture"):
         if not empty(inp.get(k)):
             inp[k] = float(inp[k])
     inp["months"] = int(inp["months"])
@@ -114,10 +118,10 @@ def compute(inp):
     saos = pipeline / inp["deal_size"]
     sqls = saos / inp["sql_to_sao"]
     mqls = sqls / inp["mql_to_sql"]
-    cap, cre = inp["capture_share"], 1 - inp["capture_share"]
-    # Budget split by share, each part buying MQLs at its own cost: MQLs = B*cap/cc + B*cre/cr.
-    blended = 1 / (cap / inp["cost_per_mql_capture"] + cre / inp["cost_per_mql_creation"])
-    budget = mqls * blended
+    # Only demand capture is counted toward the goal: its MQLs are the ones the plan needs.
+    # Demand creation is a set share of budget on top, with no MQLs or pipeline assigned to it.
+    capture_budget = mqls * inp["cost_per_mql_capture"]
+    budget = capture_budget / (1 - inp["creation_share"])
     m = {
         "pipeline_goal": pipeline,
         "revenue": pipeline * inp["win_rate"],
@@ -126,14 +130,12 @@ def compute(inp):
         "mqls": mqls,
         "closed_won": saos * inp["win_rate"],
         "budget": budget,
-        "capture_budget": budget * cap,
-        "creation_budget": budget * cre,
-        "capture_mqls": budget * cap / inp["cost_per_mql_capture"],
-        "creation_mqls": budget * cre / inp["cost_per_mql_creation"],
+        "capture_budget": capture_budget,
+        "creation_budget": budget - capture_budget,
     }
     m["monthly"] = {k: v / inp["months"] for k, v in m.items()}
-    m["blended_cost_per_mql"] = blended
     m["cost_per_sao"] = budget / saos
+    m["capture_cost_per_sao"] = capture_budget / saos
     m["pipeline_to_spend"] = pipeline / budget
     return m
 
@@ -210,17 +212,14 @@ def fields(inp, m):
         "sql_to_sao": pct(inp["sql_to_sao"]) + note("sql_to_sao"),
         "win_rate": pct(inp["win_rate"]) + note("win_rate"),
         "sales_cycle_days": f"{inp['sales_cycle_days']} days" + note("sales_cycle_days"),
-        "capture_share": pct(inp["capture_share"]) + note("capture_share"),
-        "creation_share": pct(1 - inp["capture_share"]) + note("capture_share"),
+        "capture_share": pct(1 - inp["creation_share"]) + note("creation_share"),
+        "creation_share": pct(inp["creation_share"]) + note("creation_share"),
         "cost_per_mql_capture": money(inp["cost_per_mql_capture"]) + note("cost_per_mql_capture"),
-        "cost_per_mql_creation": money(inp["cost_per_mql_creation"]) + note("cost_per_mql_creation"),
         "saos": count(m["saos"]),
         "sqls": count(m["sqls"]),
         "mqls": count(m["mqls"]),
-        "capture_mqls": count(m["capture_mqls"]),
-        "creation_mqls": count(m["creation_mqls"]),
         "closed_won": count(m["closed_won"]),
-        "blended_cost_per_mql": money(m["blended_cost_per_mql"]),
+        "capture_cost_per_sao": money(m["capture_cost_per_sao"]),
         "budget": money(m["budget"]),
         "capture_budget": money(m["capture_budget"]),
         "creation_budget": money(m["creation_budget"]),
@@ -285,26 +284,21 @@ def budget_tracker_csv(inp, m):
     add(["Start date", inp["start_date"].isoformat(), src(inp, "start_date")])
     add([f"{lab['MQL']} → {lab['SQL']}", inp["mql_to_sql"], src(inp, "mql_to_sql")], "m2s")
     add([f"{lab['SQL']} → SAO", inp["sql_to_sao"], src(inp, "sql_to_sao")], "s2o")
-    add(["Capture share of budget", inp["capture_share"], src(inp, "capture_share")], "cap")
-    add(["Creation share of budget", f"=1-{B('cap')}", "formula"], "cre")
-    add([f"Cost per {lab['MQL']}, capture", num(inp["cost_per_mql_capture"]), src(inp, "cost_per_mql_capture")], "cc")
-    add([f"Cost per {lab['MQL']}, creation", num(inp["cost_per_mql_creation"]), src(inp, "cost_per_mql_creation")], "cr")
+    add([f"Cost per {lab['MQL']} from capture channels", num(inp["cost_per_mql_capture"]), src(inp, "cost_per_mql_capture")], "cc")
+    add(["Creation share of budget (not counted toward the goal)", inp["creation_share"], src(inp, "creation_share")], "cre")
     add(["", "", ""])
     add(["Plan (worked back from the goal)", "Total", "Per month"])
     M = f"$B${at['months']}"
     add(["SAOs needed", f"={B('pipe')}/{B('deal')}", ""], "saos")
     add([f"{lab['SQLs']} needed", f"={B('saos')}/{B('s2o')}", ""], "sqls")
-    add([f"{lab['MQLs']} needed", f"={B('sqls')}/{B('m2s')}", ""], "mqls")
-    add([f"Blended cost per {lab['MQL']}", f"=1/({B('cap')}/{B('cc')}+{B('cre')}/{B('cr')})", ""], "blend")
-    add(["Budget", f"={B('mqls')}*{B('blend')}", ""], "budget")
-    add(["Capture budget", f"={B('budget')}*{B('cap')}", ""], "capb")
-    add(["Creation budget", f"={B('budget')}*{B('cre')}", ""], "creb")
-    add([f"Capture {lab['MQLs']}", f"={B('capb')}/{B('cc')}", ""], "capm")
-    add([f"Creation {lab['MQLs']}", f"={B('creb')}/{B('cr')}", ""], "crem")
+    add([f"{lab['MQLs']} needed from capture", f"={B('sqls')}/{B('m2s')}", ""], "mqls")
+    add(["Capture budget", f"={B('mqls')}*{B('cc')}", ""], "capb")
+    add(["Creation budget", f"={B('capb')}/(1-{B('cre')})*{B('cre')}", ""], "creb")
+    add(["Budget", f"={B('capb')}+{B('creb')}", ""], "budget")
     add(["Expected closed-won revenue", f"={B('pipe')}*{B('win')}", ""], "rev")
     add(["Cost per SAO", f"={B('budget')}/{B('saos')}", ""], "cps")
     add(["Pipeline to spend", f"={B('pipe')}/{B('budget')}", ""])
-    for name in ("saos", "sqls", "mqls", "budget", "capb", "creb", "capm", "crem", "rev"):
+    for name in ("saos", "sqls", "mqls", "capb", "creb", "budget", "rev"):
         rows[at[name] - 1][2] = f"={B(name)}/{M}"
     add(["", "", ""])
     add(["Budget by channel", "Type", "Share of its group", "Budget", "Per month"])
@@ -338,7 +332,7 @@ def budget_tracker_csv(inp, m):
          f'=IF(COUNT({rng("M")})=0,"",SUM({rng("M")})/SUMIF({rng("M")},"<>",{rng("L")})-1)',
          f"=SUM({rng('O')})", f"=$B${at['cps']}", f'=IF(K{t}="","",K{t}/P{t}-1)'])
     add(["", "", ""])
-    add(["Notes", "Variance columns compare actuals only against the months that have actuals. Influenced pipeline is shown, never added to sourced pipeline. Format the rate cells (B4, B9-B12) as percentages.", ""])
+    add(["Notes", "Variance columns compare actuals only against the months that have actuals. Influenced pipeline is shown, never added to sourced pipeline. Only capture is counted toward the pipeline goal; creation is a set share on top, judged on its own measures. Format the rate cells (B4, B9, B10, B12) as percentages.", ""])
     return to_csv(rows)
 
 

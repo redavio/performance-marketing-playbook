@@ -18,7 +18,7 @@ The base deck every presentation uses: the weekly update (if slides are asked fo
 5. **Drivers:** two columns, "Levers we control" and "Outside forces".
 6. **Capture vs creation:** two columns, each with its own measures.
 7. **Tests:** table of test, result, decision.
-8. **Plan:** goal, budget ($230,769 for the period in this plan), priorities.
+8. **Plan:** goal, budget ($285,714 for the period in this plan), priorities.
 9. **Asks and risks.**
 10. **Appendix:** detail tables.
 
@@ -29,8 +29,8 @@ Put these plan numbers on the slides; fill actuals from the budget tracker.
 | Slide | Plan numbers |
 | --- | --- |
 | 1. Title | Acme Analytics, 12 months from Jan 2027 (default) |
-| 2. Headline | Pipeline $3,000,000, SAOs 100, spend $230,769, cost per SAO $2,308 |
-| 3. Funnel vs plan | MQLs 667, SQLs 167, SAOs 100, pipeline $3,000,000, closed won 20, spend $230,769 |
+| 2. Headline | Pipeline $3,000,000, SAOs 100, spend $285,714, cost per SAO $2,857 |
+| 3. Funnel vs plan | MQLs 667, SQLs 167, SAOs 100, pipeline $3,000,000, closed won 20, spend $285,714 |
 | 4. Trend | Pipeline plan $250,000 a month |
-| 6. Capture vs creation | Capture budget $138,462, creation budget $92,308 |
-| 8. Plan | Goal $3,000,000 pipeline, $600,000 expected closed won; budget $230,769; 667 MQLs → 167 SQLs → 100 SAOs |
+| 6. Capture vs creation | Capture budget $200,000, creation budget $85,714 |
+| 8. Plan | Goal $3,000,000 pipeline, $600,000 expected closed won; budget $285,714; 667 MQLs → 167 SQLs → 100 SAOs |

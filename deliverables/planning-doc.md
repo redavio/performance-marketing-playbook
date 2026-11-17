@@ -21,8 +21,8 @@ Stage names in {{crm}} may differ. Map yours to these before the first report.
 
 ## 3. Unit economics
 
-- Blended cost per {{MQL}}: {{blended_cost_per_mql}} (capture {{cost_per_mql_capture}}, creation {{cost_per_mql_creation}}).
-- Cost per SAO: {{cost_per_sao}}.
+- Cost per {{MQL}} from capture channels: {{cost_per_mql_capture}}. Capture cost per SAO: {{capture_cost_per_sao}}.
+- Cost per SAO including creation: {{cost_per_sao}}.
 - Pipeline to spend: {{pipeline_to_spend}}.
 - Add CAC, payback and LTV once Finance shares gross margin and retention. See [Align to the business](https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/02-align-to-the-business.md).
 
@@ -39,7 +39,7 @@ Stage names in {{crm}} may differ. Map yours to these before the first report.
 | Demand capture | {{capture_share}} | {{capture_budget}} | Paid search, SEO, AEO, review sites, website CRO | Pipeline, cost per SAO, short window |
 | Demand creation | {{creation_share}} | {{creation_budget}} | Paid social, YouTube and CTV, display and retargeting, ABM, sponsorships, syndication | Target-account engagement, self-reported source, velocity, longer window |
 
-Expected {{MQLs}}: capture {{capture_mqls}}, creation {{creation_mqls}}.
+The goal is worked back through demand capture only: all {{mqls}} {{MQLs}} are planned from capture channels. Demand creation ({{creation_share}} of budget) is not counted toward the goal and is assigned no {{MQLs}} or pipeline. Some non-hand-raiser leads may come from it; treat them as a bonus. Judge it on target-account engagement, self-reported source and influenced pipeline.
 
 Budget by channel (equal split within each group unless you set shares; change them in the tracker):
 

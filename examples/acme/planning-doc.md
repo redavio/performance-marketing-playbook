@@ -21,9 +21,9 @@ Stage names in HubSpot (default) may differ. Map yours to these before the first
 
 ## 3. Unit economics
 
-- Blended cost per MQL: $346 (capture $300 (default), creation $450 (default)).
-- Cost per SAO: $2,308.
-- Pipeline to spend: 13.0x.
+- Cost per MQL from capture channels: $300 (default). Capture cost per SAO: $2,000.
+- Cost per SAO including creation: $2,857.
+- Pipeline to spend: 10.5x.
 - Add CAC, payback and LTV once Finance shares gross margin and retention. See [Align to the business](https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/02-align-to-the-business.md).
 
 ## 4. Who we sell to
@@ -36,22 +36,22 @@ Stage names in HubSpot (default) may differ. Map yours to these before the first
 
 | | Share | Budget | Channels | Judged on |
 | --- | --- | --- | --- | --- |
-| Demand capture | 60% (default) | $138,462 | Paid search, SEO, AEO, review sites, website CRO | Pipeline, cost per SAO, short window |
-| Demand creation | 40% (default) | $92,308 | Paid social, YouTube and CTV, display and retargeting, ABM, sponsorships, syndication | Target-account engagement, self-reported source, velocity, longer window |
+| Demand capture | 70% (default) | $200,000 | Paid search, SEO, AEO, review sites, website CRO | Pipeline, cost per SAO, short window |
+| Demand creation | 30% (default) | $85,714 | Paid social, YouTube and CTV, display and retargeting, ABM, sponsorships, syndication | Target-account engagement, self-reported source, velocity, longer window |
 
-Expected MQLs: capture 462, creation 205.
+The goal is worked back through demand capture only: all 667 MQLs are planned from capture channels. Demand creation (30% (default) of budget) is not counted toward the goal and is assigned no MQLs or pipeline. Some non-hand-raiser leads may come from it; treat them as a bonus. Judge it on target-account engagement, self-reported source and influenced pipeline.
 
 Budget by channel (equal split within each group unless you set shares; change them in the tracker):
 
 | Channel | Type | Share | Budget | Per month |
 | --- | --- | --- | --- | --- |
-| Google Ads | capture | 50% of capture | $69,231 | $5,769 |
-| Microsoft Ads | capture | 50% of capture | $69,231 | $5,769 |
-| LinkedIn Ads | creation | 100% of creation | $92,308 | $7,692 |
+| Google Ads | capture | 50% of capture | $100,000 | $8,333 |
+| Microsoft Ads | capture | 50% of capture | $100,000 | $8,333 |
+| LinkedIn Ads | creation | 100% of creation | $85,714 | $7,143 |
 
 ## 6. Budget
 
-- Total: **$230,769** ($19,231 a month), worked back from the pipeline goal.
+- Total: **$285,714** ($23,810 a month), worked back from the pipeline goal.
 - Track plan vs actual monthly in the budget tracker (budget-tracker.csv).
 - Rebalance monthly by marginal return. See [Budget](https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/06-budget.md).
 
@@ -80,5 +80,5 @@ Budget by channel (equal split within each group unless you set shares; change t
 
 ## 10. Risks and asks
 
-- Risk: rule-of-thumb defaults used for: MQL to SQL rate, SQL to SAO rate, win rate, sales cycle, capture/creation split, capture cost per MQL, creation cost per MQL. Replace them with your last 3 months of actuals by the first QBR.
+- Risk: rule-of-thumb defaults used for: MQL to SQL rate, SQL to SAO rate, win rate, sales cycle, creation share of budget, cost per MQL from capture channels. Replace them with your last 3 months of actuals by the first QBR.
 - Ask: Sales agrees the SAO definition and updates stages within two business days.

@@ -21,19 +21,19 @@ Budget is the biggest lever you control. Work it back from the pipeline goal so 
    | --- | --- | --- |
    | SAOs needed | Pipeline goal ÷ deal size | $3,000,000 ÷ $30,000 = 100 |
    | SQLs needed | SAOs ÷ SQL to SAO rate | 100 ÷ 60% = 167 |
-   | MQLs needed | SQLs ÷ MQL to SQL rate | 167 ÷ 25% = 667 |
-   | Blended cost per MQL | 1 ÷ (capture share ÷ capture cost + creation share ÷ creation cost) | 1 ÷ (60% ÷ $300 + 40% ÷ $450) = $346 |
-   | Budget | MQLs × blended cost per MQL | 667 × $346 = $230,769 |
-   | Capture / creation | Budget × each share, then ÷ each cost per MQL | $138,462 (462 MQLs) / $92,308 (205 MQLs) |
+   | MQLs needed from capture | SQLs ÷ MQL to SQL rate | 167 ÷ 25% = 667 |
+   | Capture budget | MQLs × cost per MQL from capture channels | 667 × $300 = $200,000 |
+   | Total budget | Capture budget ÷ (1 − creation share) | $200,000 ÷ 70% = $285,714 |
+   | Creation budget | Total × creation share (no MQLs assigned) | $85,714 |
    | Expected revenue | Pipeline goal × win rate | $3,000,000 × 20% = $600,000 |
-   | Cost per SAO | Budget ÷ SAOs | $2,308 |
-   | Pipeline-to-spend | Pipeline goal ÷ budget | 13 to 1 |
+   | Cost per SAO | Total budget ÷ SAOs | $2,857 ($2,000 from capture alone) |
+   | Pipeline-to-spend | Pipeline goal ÷ total budget | 10.5 to 1 |
 
-   Figures are rounded for display; the tracker keeps full precision ($230,769 comes from 666.7 MQLs). The blended cost is not a simple average: each part of the budget buys MQLs at its own cost, so the cheaper channel's share counts for more. If you have a revenue goal instead, set pipeline goal = revenue goal ÷ win rate first. Monthly plan = each number ÷ months in the period: here $19,231 a month and about 8 SAOs. The tracker also splits each group's budget across your channels.
+   The goal is worked back through demand capture only. Creation is a set share on top: the plan assigns it no MQLs or pipeline, because its effect shows up later and elsewhere (branded search, direct, self-reported source). Judge it on its own measures ([Measurement](03-measurement.md#measuring-capture-vs-creation)). Figures are rounded for display; the tracker keeps full precision. If you have a revenue goal instead, set pipeline goal = revenue goal ÷ win rate first. Monthly plan = each number ÷ months in the period: here $23,810 a month and about 8 SAOs. The tracker also splits each group's budget across your channels.
 
 2. **Sanity-check the result.** Compare cost per SAO to what your unit economics allow (see [Align to the business](02-align-to-the-business.md)). If it does not fit, change the goal, raise conversion rates or lower cost per MQL. Do not quietly cut the budget and keep the goal.
 
-3. **Split capture and creation.** Default 60% capture, 40% creation (rule of thumb). What each is and how to measure it: [Measurement](03-measurement.md#measuring-capture-vs-creation). Capture is limited by how many people search, so shift toward creation as branded search and direct traffic grow, which signals capture is near its ceiling. Credit creation's pipeline where you can (self-reported source, [influenced pipeline](03-measurement.md#influenced-pipeline)) and label it lower confidence.
+3. **Add creation on top of capture.** The goal is worked back through capture only; creation gets a set share of the total, default 30% (rule of thumb), and the plan assigns it no MQLs or pipeline. Some non-hand-raiser leads may come from it; treat them as a bonus, not a plan line. What each is and how to measure it: [Measurement](03-measurement.md#measuring-capture-vs-creation). Capture is limited by how many people search, so shift toward creation as branded search and direct traffic grow, which signals capture is near its ceiling. Credit creation's pipeline where you can (self-reported source, [influenced pipeline](03-measurement.md#influenced-pipeline)) and label it lower confidence.
 
 4. **Allocate by marginal return.** The question is not which channel has the best average cost per SAO, but where the next $1,000 buys the most. Signs a campaign can take more: high impression share lost to budget, cost per SAO well under target, a steady trend. Signs it is saturated: cost per SAO rising as spend rises, impression share already high. Default moves:
    - Move money in steps of 20% or less per campaign, then wait one to two weeks to read the result (rule of thumb).

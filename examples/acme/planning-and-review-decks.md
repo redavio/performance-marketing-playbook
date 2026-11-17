@@ -33,8 +33,8 @@ Slide-by-slide outlines. Build each on the slide template ([slide-template.pptx]
 3. **Company goal:** revenue target and the share marketing owns.
 4. **Our goal:** $3,000,000 pipeline, $600,000 expected closed won.
 5. **Funnel math:** 667 MQLs → 167 SQLs → 100 SAOs → 20 closed won, at the conversion rates in the planning doc.
-6. **Budget:** $230,769 total; capture $138,462, creation $92,308; by quarter.
-7. **Unit economics:** cost per SAO $2,308, pipeline to spend 13.0x, CAC and payback from Finance.
+6. **Budget:** $285,714 total; capture $200,000, creation $85,714; by quarter.
+7. **Unit economics:** cost per SAO $2,857, pipeline to spend 10.5x, CAC and payback from Finance.
 8. **Who we sell to:** ICP, competitors, voice of customer.
 9. **Channel plan:** each channel's role, budget and measure.
 10. **Big bets:** 2-3 larger moves for the year.

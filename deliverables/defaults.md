@@ -21,9 +21,8 @@ Every deliverable starts from these. Each one is a rule of thumb, not a benchmar
 | SQL → SAO | 60% | Meetings that Sales accepts as opportunities. |
 | SAO → Closed won (win rate) | 20% | |
 | Sales cycle | 90 days | SAO to closed won. Sets how far ahead pipeline must be built. |
-| Capture / creation split | 60% / 40% of budget | Shift toward creation as branded search and direct traffic grow. |
-| Cost per MQL, capture | $300 | Blended across paid search and other capture channels. |
-| Cost per MQL, creation | $450 | Blended across paid social, ABM and other creation channels. Creation's pipeline is credited with lower confidence. |
+| Cost per MQL from capture channels | $300 | Blended across paid search, review sites and other capture channels. |
+| Creation share of budget | 30% of the total | Added on top of what capture needs. Creation is never counted toward the pipeline goal: no MQLs or pipeline are assigned to it in the plan. Grow the share as target-account engagement, branded search and self-reported source show it working. |
 | Channels | Google Ads, Microsoft Ads, LinkedIn Ads | Add or remove freely. A channel with search, SEO, AEO, G2, Capterra or review in its name counts as capture; the rest count as creation. |
 | Channel shares | Equal within each group | Optional share of its group's budget per channel, e.g. Google Ads 80% and Microsoft Ads 20% of capture. |
 | CRM | HubSpot | Any CRM works; map your own stage names. |
@@ -32,21 +31,20 @@ Every deliverable starts from these. Each one is a rule of thumb, not a benchmar
 
 ## The math (same in the skill, the MCP server and the sheet)
 
-Working back from the goal:
+The pipeline goal is worked back through demand capture only. Demand creation (LinkedIn, Meta, YouTube, ABM, sponsorships) builds demand that shows up later and elsewhere, so the plan never assumes it produces MQLs or pipeline. It gets a set share of budget on top and is judged on its own measures (see the measurement section).
 
 1. SAOs needed = pipeline goal ÷ average deal size
 2. SQLs needed = SAOs ÷ (SQL → SAO)
-3. MQLs needed = SQLs ÷ (MQL → SQL)
-4. Blended cost per MQL = 1 ÷ (capture share ÷ capture cost per MQL + creation share ÷ creation cost per MQL). Each part of the budget buys MQLs at its own cost, so this is a weighted harmonic mean, not a simple average.
-5. Budget = MQLs needed × blended cost per MQL
-6. Capture budget = budget × capture share; creation budget = budget × creation share
-7. Capture MQLs = capture budget ÷ capture cost per MQL; creation MQLs = creation budget ÷ creation cost per MQL (they add up to MQLs needed)
-8. Each channel's budget = its group's budget × its share
-9. Expected closed-won revenue = pipeline goal × win rate
-10. Cost per SAO = budget ÷ SAOs; pipeline to spend = pipeline goal ÷ budget
+3. MQLs needed from capture = SQLs ÷ (MQL → SQL)
+4. Capture budget = MQLs needed × cost per MQL from capture channels
+5. Total budget = capture budget ÷ (1 − creation share)
+6. Creation budget = total budget × creation share
+7. Each channel's budget = its group's budget × its share
+8. Expected closed-won revenue = pipeline goal × win rate
+9. Cost per SAO = total budget ÷ SAOs (capture cost per SAO = capture budget ÷ SAOs); pipeline to spend = pipeline goal ÷ total budget
 
 Monthly plan = each number ÷ months in the period, so plan vs actual can be tracked month by month. Variances compare actuals only with the months that have actuals.
 
-Example at the defaults: $3,000,000 ÷ $30,000 = 100 SAOs → 167 SQLs → 667 MQLs. Blended cost per MQL = 1 ÷ (0.6 ÷ 300 + 0.4 ÷ 450) = $346. Budget = $230,769: capture $138,462 (462 MQLs), creation $92,308 (205 MQLs).
+Example at the defaults: $3,000,000 ÷ $30,000 = 100 SAOs → 167 SQLs → 667 MQLs from capture. Capture budget = 667 × $300 = $200,000. Total = $200,000 ÷ 0.7 = $285,714, so creation gets $85,714 and no MQLs are assigned to it.
 
 Rounding is for display only. The tracker, the skill and the MCP server keep full precision and round half up when they show a number.

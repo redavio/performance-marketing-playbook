@@ -1,6 +1,6 @@
 # Performance Marketing Playbook: v1 spec
 
-Frozen copy of the approved spec (approved 2026-11-17). The build and the reviewer check against this file.
+Frozen copy of the approved spec (approved 2026-11-17; revised 2026-11-17 so demand creation is never counted toward the pipeline goal). The build and the reviewer check against this file.
 
 ## 1. Problem
 
@@ -79,7 +79,7 @@ Plain words, no filler. Any benchmark number states its source, or is labelled a
 Every run produces files, not just answers. Inputs vary by company and every one can be customized. The user enters a pipeline goal (revenue goal too, if they have one) and their average deal size. Budget is worked back from the goal. Everything else is optional, with stated defaults the user can change: stage conversion rates, sales cycle, channels, CRM, competitors, ICP, and motion (product-led swaps MQLs for signups and product-qualified leads). The tool returns each deliverable filled in:
 
 1. **Planning doc:** goals, funnel stages, unit economics, competitors, channel mix, budget.
-2. **Budget tracker** (Google Sheet): start from the pipeline or revenue goal, back into the SAOs, SQLs and MQLs needed using stage conversion rates, then into budget by channel, split between capture and creation. Plan vs actual by month. Creation's pipeline is credited where it can be (self-reported source, influenced pipeline) and labelled lower confidence.
+2. **Budget tracker** (Google Sheet): start from the pipeline or revenue goal and work back through demand capture only: SAOs, SQLs and MQLs needed (stage conversion rates), then capture's budget (MQLs × capture cost per MQL). Demand creation gets a set share of budget on top (default 30%) and is never counted toward the goal: the plan assigns it no MQLs or pipeline. It is judged on its own measures (target-account engagement, self-reported source, influenced pipeline, labelled lower confidence). Budget by channel, plan vs actual by month.
 3. **Recurring-task list:** the operating rhythm as tasks, ready to import into ClickUp, Asana or Notion.
 4. **Slide template** (Google Slides or PowerPoint): the base deck every presentation below uses, filled with the company's numbers.
 5. **Regular updates:** weekly update (results vs goal, what changed, what's next, asks) and monthly report.

@@ -20,7 +20,7 @@ Two templates. Write the numbers from the budget tracker, never from memory. Lea
    | SAOs | | | |
    | Pipeline | | | |
 
-   Monthly plan: $19,231 spend, 56 MQLs, 8.3 SAOs, $250,000 pipeline.
+   Monthly plan: $23,810 spend, 56 MQLs, 8.3 SAOs, $250,000 pipeline.
 
 2. **What changed and why** (3 bullets max): the biggest move, its cause, and whether it's ours or outside.
 3. **What's next** (3 bullets max): actions this week, each tied to a cause above.
