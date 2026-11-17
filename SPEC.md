@@ -1,6 +1,6 @@
 # Performance Marketing Playbook: v1 spec
 
-Frozen copy of the approved spec (approved by Scott Kaplan, 2026-11-17). The build and the reviewer check against this file.
+Frozen copy of the approved spec (approved 2026-11-17). The build and the reviewer check against this file.
 
 ## 1. Problem
 
@@ -121,7 +121,7 @@ Also in the Library: Research Agent (a brief on the news that matters; What's ne
 - All 7 deliverables produce a usable file (doc, sheet or deck) from sample inputs.
 - A test set of about 15 realistic questions (e.g. "brand marketer, no offline conversions, $50K a month: what first?") gets answers that match the playbook, via both the skill and the MCP tools.
 - A fresh reviewer, given only this spec and the output, finds no gaps, unsupported claims or filler left unfixed.
-- Scott tries it locally in Claude and approves before anything is published.
+- The owner tries it locally in Claude and approves before anything is published.
 
 ## 13. Decisions
 
