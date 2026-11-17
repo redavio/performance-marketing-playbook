@@ -44,7 +44,7 @@ Your accounts only get better as fast as you learn. A program with a backlog, a 
 - **Variant wins on MQLs but SQL rate drops:** do not ship. Check lead quality with Sales.
 - **Most tests come back flat:** your changes are too small. Test bolder ideas: offer, audience, landing page, not button color.
 - **A winner fades a month later:** check for seasonality or novelty, then retest.
-- **Backlog keeps growing but nothing runs:** cap work in progress at 2 to 3 live tests per channel (rule of thumb) and drop anything scored under 5.
+- **Backlog keeps growing but nothing runs:** cap work in progress at 2 to 3 live tests per channel (rule of thumb) and drop anything scored under 5 (rule of thumb).
 
 ## Metrics
 

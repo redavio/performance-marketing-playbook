@@ -27,7 +27,7 @@ Channels affect each other, so judging each one alone gives wrong answers: cut L
 
 - **Branded search drops after a creation cut:** that was creation's effect. Restore it or plan for lower capture pipeline.
 - **Every channel claims the same deal:** switch the report to confidence tiers (step 5).
-- **Sales says leads are bad:** pull 20 recent leads Sales rejected and review them together (the same check as in [Align to the business](02-align-to-the-business.md)). Fix targeting, routing or follow-up time, whichever is actually broken.
+- **Sales says leads are bad:** pull 20 recent MQLs, including ones Sales rejected, and review them together (the same check as in [Align to the business](02-align-to-the-business.md)). Fix targeting, routing or follow-up time, whichever is actually broken.
 - **Finance wants to cut creation first:** show the holdout result and branded search trend ([08-reporting-and-communication.md](08-reporting-and-communication.md)).
 - **An agency reports wins you can't find in the CRM:** reconcile to CRM SAOs before the next invoice.
 

@@ -6,7 +6,7 @@ Two templates. Write the numbers from the budget tracker, never from memory. Lea
 
 ## Weekly update
 
-**For:** your manager, Sales leadership, Finance (cc). **When:** Monday by noon, covering the prior week. **Length:** fits on one screen; 5 minutes to read. Send as an email or a Slack post; use the slide template only if someone asks for slides.
+**For:** your manager (the marketing lead), the Sales leader, and the CEO at a startup; Finance on cc. **When:** Monday by noon, covering the prior week. **Length:** fits on one screen; 5 minutes to read. Send as an email or a Slack post; use the slide template only if someone asks for slides.
 
 **Subject:** Acme Analytics marketing, week of [date]: [one-line headline, e.g. "Pipeline on pace, LinkedIn cost per lead up 30%"]
 

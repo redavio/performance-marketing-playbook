@@ -194,7 +194,7 @@ def fields(inp, m):
     channel_rows = "\n".join(f"| {c} | {g} | {pct(s)} of {g} | {money(b)} | {money(b / inp['months'])} |" for c, g, s, b in chans)
     f = {
         "company": inp["company"],
-        "period": f"{inp['months']} months from {month_label(inp['start_date'], 0)}",
+        "period": f"{inp['months']} months from {month_label(inp['start_date'], 0)}" + note("months"),
         "months": str(inp["months"]),
         "start_date": inp["start_date"].isoformat(),
         "motion": inp["motion"],
@@ -302,7 +302,7 @@ def budget_tracker_csv(inp, m):
     add([f"Capture {lab['MQLs']}", f"={B('capb')}/{B('cc')}", ""], "capm")
     add([f"Creation {lab['MQLs']}", f"={B('creb')}/{B('cr')}", ""], "crem")
     add(["Expected closed-won revenue", f"={B('pipe')}*{B('win')}", ""], "rev")
-    add(["Cost per SAO", f"={B('budget')}/{B('saos')}", ""])
+    add(["Cost per SAO", f"={B('budget')}/{B('saos')}", ""], "cps")
     add(["Pipeline to spend", f"={B('pipe')}/{B('budget')}", ""])
     for name in ("saos", "sqls", "mqls", "budget", "capb", "creb", "capm", "crem", "rev"):
         rows[at[name] - 1][2] = f"={B(name)}/{M}"
@@ -319,14 +319,14 @@ def budget_tracker_csv(inp, m):
     add(["Month", "Planned spend", "Actual spend", "Spend vs plan", f"Planned {lab['MQLs']}", f"Actual {lab['MQLs']}",
          f"Planned {lab['SQLs']}", f"Actual {lab['SQLs']}", "Planned SAOs", "Actual SAOs", "Actual cost per SAO",
          "Planned pipeline", "Actual sourced pipeline", "Pipeline vs plan",
-         "Influenced pipeline, creation (lower confidence; not added to sourced)"])
+         "Influenced pipeline, creation (lower confidence; not added to sourced)", "Planned cost per SAO", "Cost per SAO vs plan"])
     first = len(rows) + 1
     for i in range(inp["months"]):
         r = first + i
         add([month_label(inp["start_date"], i), f"=$C${at['budget']}", "", f'=IF(C{r}="","",C{r}/B{r}-1)',
              f"=$C${at['mqls']}", "", f"=$C${at['sqls']}", "", f"=$C${at['saos']}", "",
              f'=IF(OR(C{r}="",J{r}="",J{r}=0),"",C{r}/J{r})', f"={B('pipe')}/{M}",
-             "", f'=IF(M{r}="","",M{r}/L{r}-1)', ""])
+             "", f'=IF(M{r}="","",M{r}/L{r}-1)', "", f"=$B${at['cps']}", f'=IF(K{r}="","",K{r}/P{r}-1)'])
     last = first + inp["months"] - 1
     rng = lambda c: f"{c}{first}:{c}{last}"
     t = len(rows) + 1
@@ -336,7 +336,7 @@ def budget_tracker_csv(inp, m):
          f"=SUM({rng('I')})", f"=SUM({rng('J')})", f'=IF(J{t}=0,"",C{t}/J{t})',
          f"=SUM({rng('L')})", f"=SUM({rng('M')})",
          f'=IF(COUNT({rng("M")})=0,"",SUM({rng("M")})/SUMIF({rng("M")},"<>",{rng("L")})-1)',
-         f"=SUM({rng('O')})"])
+         f"=SUM({rng('O')})", f"=$B${at['cps']}", f'=IF(K{t}="","",K{t}/P{t}-1)'])
     add(["", "", ""])
     add(["Notes", "Variance columns compare actuals only against the months that have actuals. Influenced pipeline is shown, never added to sourced pipeline. Format the rate cells (B4, B9-B12) as percentages.", ""])
     return to_csv(rows)
@@ -349,14 +349,16 @@ def recurring_tasks_csv(inp):
     first_due = {"Daily": start, "Weekly": start, "Monthly": nxt(1), "Quarterly": nxt(3), "Yearly": nxt(12)}
     rows = list(csv.reader(io.StringIO((TEMPLATES / "recurring-tasks.csv").read_text())))
     head = rows[0]
-    out = [head[:2] + ["Description", "First due"] + head[2:]]
+    off = head.index("Due offset (days)")
+    keep = [i for i in range(len(head)) if i != off]
+    out = [head[:2] + ["Description", "First due"] + [head[i] for i in keep[2:]]]
     sec = head.index("Playbook section")
     for r in rows[1:]:
         cadence = r[head.index("Cadence")]
-        section = r[sec]
-        slug = SECTION_FILES.get(section[:2], "")
+        slug = SECTION_FILES.get(r[sec][:2], "")
         desc = f"From the playbook's operating rhythm. How: {REPO}/playbook/{slug}" if slug else "From the playbook's operating rhythm."
-        out.append(r[:2] + [desc, first_due[cadence].isoformat()] + r[2:])
+        due = first_due[cadence] + dt.timedelta(days=int(r[off] or 0))
+        out.append(r[:2] + [desc, due.isoformat()] + [r[i] for i in keep[2:]])
     return to_csv(out)
 
 
@@ -416,10 +418,10 @@ def calibrate(path):
     if not done:
         return "No finished tests yet: fill in Predicted lift % and Actual lift % to back-test your scores."
     lines = [f"Finished tests with a prediction and a result: {len(done)}"]
-    bands = (("1-4", 1, 4), ("5-7", 5, 7), ("8-10", 8, 10))
+    bands = (("1-4", 0, 5), ("5-7", 5, 8), ("8-10", 8, 11))  # lower bound inclusive, upper exclusive
     for label, idx in (("Confidence", 0), ("Impact", 1)):
         for name, lo, hi in bands:
-            b = [d for d in done if lo <= d[idx] <= hi]
+            b = [d for d in done if lo <= d[idx] < hi]
             if not b:
                 continue
             err = sum(d[3] - d[2] for d in b) / len(b)
@@ -429,6 +431,7 @@ def calibrate(path):
                          f"average actual lift {avg:+.1f}%, actual minus predicted {err:+.1f} points")
     if len(done) < 10:
         lines.append("Fewer than 10 finished tests: treat this as a first read, not a calibration.")
+    lines.append("Lift is signed as entered: for a metric where lower is better (like cost per SAO), enter a fall as a positive lift.")
     lines.append("Higher Confidence should win more often, and higher Impact should lift more. If not, score lower until it does.")
     return "\n".join(lines)
 

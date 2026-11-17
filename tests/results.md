@@ -1,60 +1,73 @@
 # Test results
 
-Run 2026-11-17. Route A = SKILL.md followed as written (sections from its table, fill.py for numbers). Route B = local Redavio MCP server (playbook_guide, playbook_deliverable), answer written only from what the tools returned. Routing = the sections playbook_guide returned for the question as asked, without a `section` follow-up.
+Second-pass check, 2026-11-17, against SPEC.md. Each question answered two ways: (A) as the skill (SKILL.md: pick sections, read them, numbers from `fill.py`); (B) through the local MCP server (`playbook_guide`, `playbook_deliverable` at http://localhost:3100/mcp, reading this checkout). Numbers below are tool output, not hand math.
 
-Parity checks done first: every section returned by playbook_guide contains the repo file's text exactly (all 12), and playbook_deliverable output is byte-identical to `fill.py plan` for planning-doc, budget-tracker, regular-updates, planning-and-review-decks, recurring-tasks and experiment-database (3M / 30K, and product-led), apart from the tool's header and source lines.
+## Results
 
-| # | Route A | Route B | Routing right? | Agree? |
-| --- | --- | --- | --- | --- |
-| 1 | PASS | PASS | Partial: 2, 3, 5 (5 is off topic; 1, 4, 6 missing) | Mostly |
-| 2 | PASS | PASS | Yes: 6, 3 | Yes |
-| 3 | PASS | PASS | Yes: 4, 5, 6 | Yes |
-| 4 | PASS | PASS | Partial: 5 only (3, 11 missing) | Yes |
-| 5 | PASS | PASS | Yes: 3 | Yes |
-| 6 | PASS | PASS (weak) | Partial: 4 only (3 missing) | Mostly |
-| 7 | PASS | PASS | Yes: 2, 3 (11 would help) | Yes |
-| 8 | PASS | PASS | Partial: 8, 9, 12 (12 off topic) | Yes |
-| 9 | PASS | PASS | Yes: 8 | Yes |
-| 10 | PASS | PASS | Partial: 2 only (3 missing) | Yes |
-| 11 | PASS | PASS | Yes: 7, 1, 4 | Yes |
-| 12 | PASS | PASS | Yes: 9 | Yes |
-| 13 | PASS | PASS | Partial: 4 only (12 missing) | Mostly |
-| 14 | PASS | PASS | Partial: 2, 4 (7 missing) | Mostly |
-| 15 | PASS (weak) | FAIL | No: 3 only (6 and 8 missing) | No |
+| # | Question | A: skill | B: MCP | Sections picked by playbook_guide | Tools listed by playbook_guide | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Brand marketer, no offline conversions, $50K/mo: what first? | PASS | PASS | 1, 2, 3 (right) | Correlation Analyzer only (partial fit) | Fix data driven first (01 step 2), map stages, click IDs, daily offline uploads, optimize to valued MQLs (03 steps 1-4); $50K/mo by hand = call an expert / Ad Budget Optimizer (06). The guide's tool list misses performance-os (offline conversion setup) and Ad Budget Optimizer. |
+| 2 | $3M pipeline, $30K deal: how much to spend? Build the plan. | PASS | PASS | 6 (right; 2 would also fit) | Ad Budget Optimizer (fits) | fill.py and planning-doc: 100 SAOs, 167 SQLs, 667 MQLs, blended $346, budget $230,769 ($19,231/mo), capture $138,462 / creation $92,308, cost per SAO $2,308. MCP budget-tracker returns formulas only, so the AI must take the numbers from planning-doc. |
+| 3 | Split budget between Google and LinkedIn? | PASS | PASS | 4, 6, 5 (right) | LPA, Ad Copy, performance-os, Ad Budget Optimizer, Account Influence (noisy) | 60/40 capture/creation default, then marginal return (06 steps 3-4). fill.py with those two channels: Google $138,462, LinkedIn $92,308. Microsoft 10-20% of search if added (04). |
+| 4 | CEO wants to cut LinkedIn on last click. | PASS | PASS | 11, 8, 3 (good; misses 5) | Correlation Analyzer, Driver breakdown (planned) (fits) | Capture vs creation table (03), holdout + self-reported + branded search trend (05, 11 rules). The exact "leadership asks for last-click ROI" rule is in 05, which the guide doesn't return; 11 carries the equivalent rule. |
+| 5 | Which attribution model? | PASS | PASS | 3 (right) | Correlation Analyzer (fits) | Data-driven in platform for bidding, linear in CRM, self-reported alongside; attribution is not proof of cause (03 steps 5-6). |
+| 6 | Prove paid search is incremental? | PASS | PASS | 3, 4 (right) | Correlation, LPA, Ad Copy, performance-os (LPA/Ad Copy are noise) | Brand vs non-brand checks, geo holdouts, one cause test a year (rule of thumb); call an expert to design a geo holdout (04, 07). |
+| 7 | Sales says MQLs are junk. | PASS | PASS | 2, 3, 11 (right) | Correlation Analyzer (fits) | Review 20 leads together, split hand-raiser vs content MQLs, bid to SQL/SAO with offline conversions, MQL→SQL by channel in the weekly. 02 and 11 describe the 20-lead check differently (see Still open). |
+| 8 | Weekly update template for leadership. | PASS | PASS | 8, 9 (right) | Driver breakdown, Ad Budget Optimizer (BO is noise) | regular-updates deliverable filled: monthly plan $19,231 spend, 56 MQLs, 8.3 SAOs, $250,000 pipeline. |
+| 9 | QBR deck outline for next week. | PASS | PASS | 8 (right) | Driver breakdown (fits) | QBR outline from planning-and-review-decks, timing "last two weeks of the quarter"; pptx base deck filled by fill.py. MCP returns a blank outline without inputs, filled with inputs. |
+| 10 | Product-led with free signups: does this work? | PASS | PASS | 2, 3 (right) | Correlation Analyzer (weak fit) | Motion swap Signup/PQL, optimize to activation (02). Labels flow into tracker, planning doc and pptx. Defaults stay sales-led ($300 per signup) and the planning doc's Priorities and risk line still say MQL/SQL (see Still open). |
+| 11 | Prioritize: demo-page pricing, LinkedIn video, competitor terms. | PASS | PASS | 7, 5, 1 (right) | Ad Copy, LPA, Account Influence (fits) | ICS from the experiment database: pricing range 6.7, competitor split 6.3, LinkedIn video 5.7; run highest first, design sample size and stop date, 2-3 live per channel. calibrate tested by Confidence and Impact band with win rate. |
+| 12 | What to do every day, week, month? Put it in ClickUp. | PASS | FAIL | 9 (right) | Ad Budget Optimizer (fits D2/D4/M4) | Daily/weekly/monthly lists correct, with description and first due date; recurrence must be set after import. MCP: calling recurring-tasks with only `{"start_date": ...}` errors ("inputs.deal_size expected number"); works only with no inputs or with deal_size added. Quarterly/yearly first-due dates contradict the playbook's timing. |
+| 13 | Show up in ChatGPT answers? | PASS | PASS | 4, 12 (right) | LPA, Ad Copy, performance-os, Research Agent (LPA/Ad Copy/perfos noise; Correlation would fit) | AEO steps: 20 buyer questions monthly, quotable pages, third-party mentions, share of answers (04); ChatGPT ads only on Free/Go (12). |
+| 14 | Landing pages convert at 1%. | PASS | PASS | 4, 7 (right) | LPA first, Ad Copy, performance-os (fits) | Below 2% rule (rule of thumb): message match, form length, speed, then Landing Page Analyzer; measure visit-to-form and form-to-SQL separately; test design from 07. |
+| 15 | $400K behind on pipeline mid-quarter. | PASS | PASS | 6, 8 (right) | Ad Budget Optimizer, Driver breakdown (fits) | fill.py on the gap: 13.3 SAOs, 22.2 SQLs, 88.9 MQLs, $30,769 at defaults. Order: stage rates, budget-limited capture, reset goal in writing if the gap is over 20% of the quarter's goal (rule of thumb); explain in the weekly. |
 
-Totals: Route A 15/15, Route B 14/15. Routing right 7, partial 7, wrong 1.
+**Totals:** skill 15/15 PASS. MCP 14/15 PASS (Q12 fails on input validation). playbook_guide picked the right sections for all 15; its tool list fits 10 of 15 well, the rest include noise or miss an obvious tool (Q1, Q3, Q6, Q8, Q13).
 
-## Summary per question
+## Earlier review findings: verified
 
-1. Fix tracking first (map stages, click IDs, conversion values, daily offline uploads), optimize to valued MQLs until volume allows SQL/SAO, ask for pipeline goal + deal size and run the math to test the $50K/month. A also cites section 1's "data driven first" order and the $50K/$20K call-an-expert thresholds; B doesn't have those.
-2. fill.py and the tool agree: 100 SAOs, 167 SQLs, 667 MQLs, $240,000/yr ($20,000/mo), capture $144,000 / creation $96,000, $2,400 per SAO, 12.5x. Offer all seven deliverables.
-3. Default 60% capture / 40% creation, LinkedIn as the first creation channel, Microsoft at 10-20% of search, move money by marginal return in steps of 20% or less.
-4. Don't judge creation on last click; show the holdout, self-reported source and branded search trend; propose a lift test. A adds section 11's "branded search falls a month later" warning.
-5. Data-driven in the ad platforms for bidding, linear in the CRM for pipeline, self-reported next to both; attribution isn't proof of cause.
-6. Brand vs non-brand checks and geo holdouts; call an expert to design the holdout. A adds section 3's "at least one cause test a year" and lift tests.
-7. Pull recent MQLs and review them with Sales, fix the definition or targeting, split hand-raisers from content leads, bid to SQL/SAO through offline conversions.
-8. Weekly template (results vs goal, what changed, what's next, tests, asks; Monday by noon); both need pipeline goal + deal size before the filled template can be produced.
-9. 12-slide QBR outline from planning-and-review-decks (postmortem then next-quarter plan), within 2 weeks of quarter end.
-10. Yes: swap MQL to signup and SQL to PQL, optimize to activation, run fill.py / the tool with `motion: product-led`.
-11. ICS from the experiment database: pricing on demo page 6.7, competitor split 6.3, LinkedIn video 5.7; rescore with own evidence, check sample size, judge the video on creation measures.
-12. Section 9 daily/weekly/monthly/quarterly/yearly lists, recurring-tasks CSV (31 tasks) to import into ClickUp. ClickUp was not written to in this test.
-13. AEO steps: ask the 20 buyer questions monthly, quotable pages, third-party mentions, share of answers. A also offers a small ChatGPT ads test (section 12); B doesn't.
-14. Start with paid landing pages, one page per offer, cut form fields, test one big change, judge on SAOs per visit. A adds section 7's sample size and run-time rules.
-15. A: explain the gap with drivers, forecast plan / actual / period end, apply the section 6 rules, and use fill.py to size the catch-up (at $30K deals: 13.3 SAOs, 88.9 MQLs, $32,000 at defaults). B got only measurement and has nothing on catching up.
+| Finding | Status | Evidence |
+| --- | --- | --- |
+| Blended cost per MQL = 1/(capture share/capture cost + creation share/creation cost) everywhere; $230,769 at defaults | Fixed | defaults.md:40,50; 06-budget.md:25-27; fill.py:119; playbook.ts:173; tracker row 20 `=1/(B11/B13+B12/B14)`. Evaluated: $346.15, budget $230,769.23, 462 + 205 MQLs. playbook-parity.mts: 5/5 cases match. |
+| Tracker: budget by channel; plan vs actual spend, cost per SAO, pipeline | Partly fixed | Budget by channel present (plan only). Spend and pipeline have plan, actual and variance. Cost per SAO has an actual column only; plan cost per SAO sits in the plan block, with no monthly plan column or variance. |
+| Sourced and influenced pipeline never added | Fixed | Separate column O, own total; note row says so. |
+| Totals compare actuals only with months that have actuals | Fixed | `SUMIF(C,"<>",B)` and `SUMIF(M,"<>",L)` in the Total row. |
+| Revenue-goal row and rule (revenue_goal only) | Fixed | Pipeline goal = `=B3/B4` → $3,000,000 from $600,000 at 20%; same via MCP. |
+| experiment-database.csv formulas parse as CSV | Fixed | 20 columns on every row; ICS `=ROUND(AVERAGE(G:I),1)` → 6.7/6.3/5.7; error `=IF(P="","",P-L)` evaluates. |
+| fill.py calibrate by Confidence and Impact with win rate | Fixed | Test CSV of 7 rows (6 finished): bands 1-4/5-7/8-10 for both, win rate counts significant and in the predicted direction; MCP experiments_csv gives the same text. |
+| Recurring tasks have description and first due date | Fixed | Both columns present (fill.py:352, playbook.ts:390). Dates wrong for Q6, Q7, Y2 (Still open). |
+| Filled slide-template.pptx has company numbers and product-led labels | Fixed | Flowly product-led run: slides 2, 3, 6, 8 show $6,000,000, 500 SAOs, $1,153,846, Signups/PQLs. |
+| No template link breaks outside the repo | Fixed | All deliverable template links are absolute GitHub URLs; no relative links in filled output; all in-repo playbook links and anchors resolve. |
+| Planning doc has a Priorities table with a Principle column | Fixed | planning-doc.md:70-77. |
+| Defaults used listed in plain words | Fixed in fill.py, not in MCP | Planning doc risk line uses plain labels; MCP header lists raw keys (`mql_to_sql, cost_per_mql_capture`). |
+| Every section's Tools block links the Library | Fixed | 12/12 link https://www.redavio.com (the library home); tool slugs match src/lib/library.ts. |
+| No unlabelled benchmark numbers | Mostly fixed | Two thresholds lack "rule of thumb" (Still open, nice). |
+| No contradictions: QBR timing, annual plan timing, lead follow-up, pacing tolerance, SQL = meeting scheduled | Mostly fixed | Section text agrees (08, 09, decks; 02 and 11 on follow-up; 06/10 ±10% vs 15% alert; 03/defaults/fill.py on SQL). Remaining: recurring-tasks.csv QBR wording and first-due dates. |
 
-## Fails and weak spots
+## Still open
 
-- Q15 (B FAIL): playbook_guide sent "$400K behind on pipeline halfway through the quarter" to section 3 only; it needs 6 (forecast, pacing, reallocation) and 8 (explain gaps with drivers, bad-month rule).
-- Q15 (A weak): no section has a rule for a mid-quarter pipeline shortfall (how to size the catch-up, whether to add spend given the stage lag, when to reset the goal in writing). The only trigger, "two months under 80% of pipeline plan", sits in the annual plan deck and has no response steps in 06-budget.md.
-- Q1: playbook_guide picked 5 (demand creation, from the word "brand") instead of 1 (fix data driven first) and 4/6 (the $20K search and $50K/month call-an-expert thresholds).
-- Q4: playbook_guide returned 5 only; 11 (cut LinkedIn, branded search falls; "Finance wants to cut creation first") and 3 (never judge creation on last click) are missing. No "Redavio tools to call next" line, though section 5 lists Marketing Correlation Analyzer.
-- Q6: playbook_guide returned 4 only; 3 has the full proof-of-cause list. Tools line suggests Landing Page Analyzer, Ad Copy Analyzer and Ad Budget Optimizer, none of which bear on incrementality; Marketing Correlation Analyzer (with "correlation is not proof") fits.
-- Q7: the playbook contradicts itself: 02 says review 20 recent MQLs with Sales, 11 says pull ten rejected leads.
-- Q8: playbook_guide adds section 12 (off topic) and suggests Research Agent. playbook_deliverable refuses regular-updates without pipeline_goal and deal_size, so an unfilled weekly template can't be had from the tool (fill.py has the same requirement).
-- Q9: section 1 step 5 says open the QBR with the four principle scores, but the QBR outline in planning-and-review-decks.md has no slide for them. No tools line.
-- Q10: product-led planning doc labels the second stage "PQLs (meeting scheduled)", carrying the sales-led SQL description over. defaults.md has no product-led rates or cost per signup (sales-led 25% and $300 are reused), and the plan has no activation stage although 02 says optimize to activation. playbook_guide returned 2 only; 3 has the product-led stage mapping.
-- Q12: no "Redavio tools to call next" line, although section 9 maps Ad Budget Optimizer to D2/D4/M4 and Research Agent to M6.
-- Q13: playbook_guide returned 4 only; 12 (ChatGPT ads, AI answers as a channel) is missing. Tools line suggests Landing Page/Ad Copy Analyzers and Ad Budget Optimizer; section 4's own pick for AEO is Marketing Correlation Analyzer (AI mentions vs direct traffic).
-- Q14: playbook_guide returned 2 and 4 but not 7 (sample size, run time). No rule for "landing pages convert at X%" (is it low, which rate is meant, what to check first); the only sample-size example is a 3% baseline.
-- Q3: tools line lists Ad Budget Optimizer twice.
-- playbook_guide with `section` set still appends sections matched from the question (a junk question falls back to 2 and 3), so it doesn't return only the section asked for.
+**Must**
+
+1. redavio-web/src/app/mcp/route.ts:448 — `deal_size` is required in the zod schema, so `playbook_deliverable` recurring-tasks with `{"start_date": ...}` fails validation; make `deal_size` optional in the schema and enforce it in the handler for the deliverables that need it.
+2. fill.py:349 (and playbook.ts:384) — quarterly and yearly first-due dates contradict the playbook: Q7 QBR and Q6 next quarter's plan fall after the quarter ends (08:24, 09:69-70 say last 2 weeks of the quarter), Y2 annual plan falls at the start of the next year (08:26, 09:77 say draft 8 weeks before); set per-task offsets (e.g. QBR = quarter end − 14 days, Y2 = year end − 8 weeks, postmortems = end + 14 days).
+
+**Should**
+
+3. deliverables/recurring-tasks.csv:27 — "Run the QBR (within 2 weeks of quarter end)" reads as after the end; change to "in the last 2 weeks of the quarter" to match 08:24 and 09:70.
+4. fill.py:319-329 (and playbook.ts:345-355) — add a monthly "Planned cost per SAO" column and a cost-per-SAO variance, so cost per SAO has plan vs actual like spend and pipeline.
+5. playbook/06-budget.md:60 vs fill.py:310-317 — 06 says actuals are entered by channel, but the tracker only has channel plan; add actual spend, SAOs and pipeline per channel (or capture vs creation), or change the sentence.
+6. playbook/05-demand-creation.md:19 vs fill.py:321 — 05 says creation pipeline is counted from self-reported source in the tracker; there is no self-reported column; add "Self-reported pipeline, creation (medium confidence)" next to influenced, or reword.
+7. deliverables/experiment-database.csv:1 — 07:23-28 says to record score reasoning, baseline, minimum detectable effect, sample size, stop date and decision rule "in the database"; add those columns.
+8. deliverables/planning-doc.md:74-75 — Priorities rows hardcode "SQL", "MQL, SQL and SAO"; use {{SQL}}/{{MQL}} so product-led plans say Signup/PQL. Same for fill.py:51-57 / playbook.ts:113-117 labels in the risk line ("MQL to SQL rate", "cost per MQL").
+9. redavio-web/src/app/mcp/route.ts:495 — "Defaults used" lists raw keys; map through LABELS for plain words, as fill.py does.
+10. playbook/02-align-to-the-business.md:42 vs playbook/11-cross-channel-and-working-with-others.md:30 — "20 recent MQLs" vs "20 recent leads Sales rejected", while 11 calls it "the same check"; pick one wording.
+11. redavio-web/src/lib/playbook.ts:31-36 — guide tool hand-offs: add perfos to section 03 (offline conversion setup, Q1), add "last click"/"cut linkedin" keywords to section 05 so its last-click rule is returned (Q4), and drop adcopy/landing from section 04's default hand-offs unless the question is about pages or copy (noise on Q3, Q6, Q13).
+12. SPEC.md §3 / redavio-web/src/lib/library.ts:133-378 — no Library page for the playbook in the item list (confirm it isn't only in Sanity); needed before publishing.
+
+**Nice**
+
+13. deliverables/defaults.md:19 — product-led runs use sales-led defaults ($300 per signup, 25% signup to PQL); add product-led defaults or warn in the filled planning doc when motion is product-led and rates are defaulted.
+14. deliverables/planning-doc.md:7 — when the pipeline goal is derived from a revenue goal, say so ("revenue goal ÷ win rate"), and mark period and start date "(default)" when defaulted.
+15. deliverables/regular-updates.md:9 — weekly update audience ("your manager, Sales leadership, Finance") differs from 08:22 ("Marketing lead, Sales leader, CEO at a startup"); align.
+16. playbook/07-experimentation.md:47 ("drop anything scored under 5") and playbook/09-operating-rhythm.md:113 ("more than four channels") — label as rules of thumb.
+17. fill.py:419-427 (and playbook.ts:425-430) — calibrate drops scores between bands (e.g. 4.5, 7.5) and averages signed lift across metrics where lower is better (cost per SAO); use bands 1-<5/5-<8/8-10 and compare lift in the predicted direction.

@@ -28,7 +28,7 @@ Put these plan numbers on the slides; fill actuals from the budget tracker.
 
 | Slide | Plan numbers |
 | --- | --- |
-| 1. Title | Acme Analytics, 12 months from Jan 2027 |
+| 1. Title | Acme Analytics, 12 months from Jan 2027 (default) |
 | 2. Headline | Pipeline $3,000,000, SAOs 100, spend $230,769, cost per SAO $2,308 |
 | 3. Funnel vs plan | MQLs 667, SQLs 167, SAOs 100, pipeline $3,000,000, closed won 20, spend $230,769 |
 | 4. Trend | Pipeline plan $250,000 a month |

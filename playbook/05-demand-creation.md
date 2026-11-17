@@ -16,7 +16,7 @@ Most of your future buyers are not searching yet. Demand creation teaches the ri
 
 1. **Measure it as creation, not capture.** Never on last click. The measures, window and proof of cause are in [Measurement](03-measurement.md#measuring-capture-vs-creation).
 2. **Prove cause with lift.** Split your target accounts into a test group and a holdout group that sees no ads. After a quarter, compare meetings, SAOs and branded search between them. Use platform lift studies where offered.
-3. **Credit with honesty.** In the [budget tracker](../deliverables/budget-tracker.csv), count creation pipeline from self-reported source and [influenced pipeline](03-measurement.md#influenced-pipeline), labelled lower confidence.
+3. **Credit with honesty.** In the [budget tracker](../deliverables/budget-tracker.csv), enter creation's [influenced pipeline](03-measurement.md#influenced-pipeline) (include opportunities whose self-reported source names a creation channel) in its own column, labelled lower confidence and never added to sourced pipeline.
 4. **Start with one channel done well:** LinkedIn for most B2B SaaS, then add one more once you can see lift.
 
 ### Paid social: LinkedIn, Meta, Reddit

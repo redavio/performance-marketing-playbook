@@ -1,32 +1,32 @@
-ID,Task name,Cadence,Recurrence,Owner role,Playbook section,Principle
-D1,Check alerts and confirm yesterday's conversions recorded on every channel,Daily,Every weekday,Paid acquisition owner,10 Operations and AI,Operational excellence
-D2,Check spend pacing vs budget by channel,Daily,Every weekday,Paid acquisition owner,06 Budget,Data driven
-D3,Scan for flagrant spend: spending with no conversions above the alert threshold,Daily,Every weekday,Paid acquisition owner,06 Budget,Data driven
-D4,Approve or reject pending change recommendations,Daily,Every weekday,Paid acquisition owner,10 Operations and AI,Operational excellence
-W1,"Review search terms: add negatives, promote converting terms",Weekly,Every week,Paid acquisition owner,04 Demand capture,Data driven
-W2,Review results vs goal by funnel stage and channel,Weekly,Every week,Paid acquisition owner,08 Reporting and communication,Strategic alignment
-W3,"Check live tests: end any at sample size, launch the next from the backlog",Weekly,Every week,Paid acquisition owner,07 Experimentation,Rapid experimentation
-W4,"Review ads and assets: disapprovals, low performers, fatigue",Weekly,Every week,Paid acquisition owner,04 Demand capture,Rapid experimentation
-W5,Review lead quality and MQL to SQL rate with Sales,Weekly,Every week,Sales leader,11 Cross-channel and working with others,Strategic alignment
-W6,Log every change made this week in the change log,Weekly,Every week,Paid acquisition owner,10 Operations and AI,Operational excellence
-W7,Send the weekly update (Monday by noon),Weekly,Every week,Paid acquisition owner,08 Reporting and communication,Strategic alignment
-M1,Update the budget tracker with plan vs actual,Monthly,Every month,Paid acquisition owner,06 Budget,Data driven
-M2,Reconcile platform spend with invoices,Monthly,Every month,Finance,11 Cross-channel and working with others,Operational excellence
-M3,Check offline conversions and CRM stages match what ad platforms received,Monthly,Every month,RevOps,03 Measurement,Data driven
-M4,Rebalance budget across channels and campaigns by marginal return,Monthly,Every month,Paid acquisition owner,06 Budget,Data driven
-M5,Groom the experiment backlog and re-score ideas with ICS,Monthly,Every month,Paid acquisition owner,07 Experimentation,Rapid experimentation
-M6,"Review competitors and the news brief: new ads, offers, pricing, platform changes",Monthly,Every month,Paid acquisition owner,12 What's new,Strategic alignment
-M7,"Refresh audiences and lists: target accounts, customer exclusions, retargeting",Monthly,Every month,Paid acquisition owner,05 Demand creation,Operational excellence
-M8,Send the monthly report (by the 5th business day),Monthly,Every month,Paid acquisition owner,08 Reporting and communication,Strategic alignment
-Q1,"Audit each account: structure, settings, tracking, conversion setup",Quarterly,Every 3 months,Paid acquisition owner,04 Demand capture,Operational excellence
-Q2,Back-test ICS scores against test results in the test log,Quarterly,Every 3 months,Paid acquisition owner,07 Experimentation,Rapid experimentation
-Q3,Replace default conversion rates and costs with the last 3 months of actuals,Quarterly,Every 3 months,RevOps,06 Budget,Data driven
-Q4,"Plan or run one proof-of-cause check (brand vs non-brand, geo or account holdout)",Quarterly,Every 3 months,Paid acquisition owner,03 Measurement,Data driven
-Q5,Write the quarter postmortem,Quarterly,Every 3 months,Paid acquisition owner,08 Reporting and communication,Strategic alignment
-Q6,Build next quarter's plan and budget,Quarterly,Every 3 months,Marketing lead,06 Budget,Strategic alignment
-Q7,Run the QBR (within 2 weeks of quarter end),Quarterly,Every 3 months,Marketing lead,08 Reporting and communication,Strategic alignment
-Y1,Write the annual postmortem,Yearly,Every year,Marketing lead,08 Reporting and communication,Strategic alignment
-Y2,Build the annual plan and budget with Finance,Yearly,Every year,Marketing lead,06 Budget,Strategic alignment
-Y3,Review tracking and attribution end to end,Yearly,Every year,RevOps,03 Measurement,Data driven
-Y4,"Review tools, vendors and contracts before renewals",Yearly,Every year,Marketing lead,10 Operations and AI,Operational excellence
-Y5,Clean up user access on every ad account and tool,Yearly,Every year,Paid acquisition owner,10 Operations and AI,Operational excellence
+ID,Task name,Cadence,Recurrence,Owner role,Playbook section,Principle,Due offset (days)
+D1,Check alerts and confirm yesterday's conversions recorded on every channel,Daily,Every weekday,Paid acquisition owner,10 Operations and AI,Operational excellence,0
+D2,Check spend pacing vs budget by channel,Daily,Every weekday,Paid acquisition owner,06 Budget,Data driven,0
+D3,Scan for flagrant spend: spending with no conversions above the alert threshold,Daily,Every weekday,Paid acquisition owner,06 Budget,Data driven,0
+D4,Approve or reject pending change recommendations,Daily,Every weekday,Paid acquisition owner,10 Operations and AI,Operational excellence,0
+W1,"Review search terms: add negatives, promote converting terms",Weekly,Every week,Paid acquisition owner,04 Demand capture,Data driven,0
+W2,Review results vs goal by funnel stage and channel,Weekly,Every week,Paid acquisition owner,08 Reporting and communication,Strategic alignment,0
+W3,"Check live tests: end any at sample size, launch the next from the backlog",Weekly,Every week,Paid acquisition owner,07 Experimentation,Rapid experimentation,0
+W4,"Review ads and assets: disapprovals, low performers, fatigue",Weekly,Every week,Paid acquisition owner,04 Demand capture,Rapid experimentation,0
+W5,Review lead quality and MQL to SQL rate with Sales,Weekly,Every week,Sales leader,11 Cross-channel and working with others,Strategic alignment,0
+W6,Log every change made this week in the change log,Weekly,Every week,Paid acquisition owner,10 Operations and AI,Operational excellence,0
+W7,Send the weekly update (Monday by noon),Weekly,Every week,Paid acquisition owner,08 Reporting and communication,Strategic alignment,0
+M1,Update the budget tracker with plan vs actual,Monthly,Every month,Paid acquisition owner,06 Budget,Data driven,0
+M2,Reconcile platform spend with invoices,Monthly,Every month,Finance,11 Cross-channel and working with others,Operational excellence,0
+M3,Check offline conversions and CRM stages match what ad platforms received,Monthly,Every month,RevOps,03 Measurement,Data driven,0
+M4,Rebalance budget across channels and campaigns by marginal return,Monthly,Every month,Paid acquisition owner,06 Budget,Data driven,0
+M5,Groom the experiment backlog and re-score ideas with ICS,Monthly,Every month,Paid acquisition owner,07 Experimentation,Rapid experimentation,0
+M6,"Review competitors and the news brief: new ads, offers, pricing, platform changes",Monthly,Every month,Paid acquisition owner,12 What's new,Strategic alignment,0
+M7,"Refresh audiences and lists: target accounts, customer exclusions, retargeting",Monthly,Every month,Paid acquisition owner,05 Demand creation,Operational excellence,0
+M8,Send the monthly report (by the 5th business day),Monthly,Every month,Paid acquisition owner,08 Reporting and communication,Strategic alignment,0
+Q1,"Audit each account: structure, settings, tracking, conversion setup",Quarterly,Every 3 months,Paid acquisition owner,04 Demand capture,Operational excellence,0
+Q2,Back-test ICS scores against test results in the test log,Quarterly,Every 3 months,Paid acquisition owner,07 Experimentation,Rapid experimentation,0
+Q3,Replace default conversion rates and costs with the last 3 months of actuals,Quarterly,Every 3 months,RevOps,06 Budget,Data driven,0
+Q4,"Plan or run one proof-of-cause check (brand vs non-brand, geo or account holdout)",Quarterly,Every 3 months,Paid acquisition owner,03 Measurement,Data driven,0
+Q5,Write the quarter postmortem,Quarterly,Every 3 months,Paid acquisition owner,08 Reporting and communication,Strategic alignment,0
+Q6,Build next quarter's plan and budget (agree it in the QBR),Quarterly,Every 3 months,Marketing lead,06 Budget,Strategic alignment,-14
+Q7,Run the QBR (last 2 weeks of the quarter),Quarterly,Every 3 months,Marketing lead,08 Reporting and communication,Strategic alignment,-14
+Y1,Write the annual postmortem,Yearly,Every year,Marketing lead,08 Reporting and communication,Strategic alignment,0
+Y2,"Build the annual plan and budget with Finance (draft 8 weeks before the year, final 4 weeks before)",Yearly,Every year,Marketing lead,06 Budget,Strategic alignment,-56
+Y3,Review tracking and attribution end to end,Yearly,Every year,RevOps,03 Measurement,Data driven,0
+Y4,"Review tools, vendors and contracts before renewals",Yearly,Every year,Marketing lead,10 Operations and AI,Operational excellence,0
+Y5,Clean up user access on every ad account and tool,Yearly,Every year,Paid acquisition owner,10 Operations and AI,Operational excellence,0

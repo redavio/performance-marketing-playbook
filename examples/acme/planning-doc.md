@@ -1,6 +1,6 @@
 # Acme Analytics: performance marketing plan
 
-Period: 12 months from Jan 2027. Motion: sales-led. Values marked "(default)" are rules of thumb from [defaults.md](https://github.com/redavio/performance-marketing-playbook/blob/main/deliverables/defaults.md); replace them with your own numbers when you have them.
+Period: 12 months from Jan 2027 (default). Motion: sales-led. Values marked "(default)" are rules of thumb from [defaults.md](https://github.com/redavio/performance-marketing-playbook/blob/main/deliverables/defaults.md); replace them with your own numbers when you have them.
 
 ## 1. Goals
 

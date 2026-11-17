@@ -71,8 +71,8 @@ Budget by channel (equal split within each group unless you set shares; change t
 
 | Initiative | Principle | Owner | Due |
 | --- | --- | --- | --- |
-| Offline conversions for SQL and SAO live in every ad platform | Data driven | | |
-| Agree MQL, SQL and SAO definitions with Sales | Strategic alignment | | |
+| Offline conversions for {{SQL}} and SAO live in every ad platform | Data driven | | |
+| Agree {{MQL}}, {{SQL}} and SAO definitions with Sales | Strategic alignment | | |
 | Weekly update and budget tracker running | Operational excellence | | |
 | First three tests from the experiment database | Rapid experimentation | | |
 

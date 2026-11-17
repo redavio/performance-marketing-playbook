@@ -110,7 +110,7 @@ Most paid accounts fail from neglect, not bad strategy: broken tracking nobody n
 
 - The daily and weekly lists take more than double the time above. The account structure probably needs fixing.
 - Tracking breaks more than once a quarter.
-- You run more than four channels and can't keep the rhythm alone.
+- You run more than four channels (rule of thumb) and can't keep the rhythm alone.
 
 ## Tools and sources
 

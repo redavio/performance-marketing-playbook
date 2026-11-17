@@ -57,7 +57,7 @@ Budget is the biggest lever you control. Work it back from the pipeline goal so 
 8. **Use the budget tracker.** Open [budget-tracker.csv](../deliverables/budget-tracker.csv) (or the Google Sheet your AI builds from it).
    - Enter pipeline goal and deal size. Replace defaults with your numbers as you get them; defaults are marked so nobody mistakes them for yours.
    - It returns SAOs, SQLs, MQLs and budget by channel, split capture and creation, by month.
-   - Each month, enter actual spend, MQLs, SQLs, SAOs and pipeline by channel. It shows plan vs actual and the gap.
+   - Each month, enter actual spend, MQLs, SQLs, SAOs and pipeline. It shows plan vs actual and the gap, including cost per SAO. The channel table holds each channel's planned budget; compare it monthly with spend from each ad platform.
    - Review it in the weekly update and rerun it each quarter.
 
 ## If you see X, do Y
