@@ -1,0 +1,41 @@
+Budget tracker,Acme Analytics,
+Inputs,Value,Source
+Pipeline goal,3000000,yours
+Average deal size,30000,yours
+Months in period,12,default (rule of thumb)
+MQL → SQL,0.25,default (rule of thumb)
+SQL → SAO,0.6,default (rule of thumb)
+SAO → Closed won (win rate),0.2,default (rule of thumb)
+Capture share of budget,0.6,default (rule of thumb)
+Creation share of budget,=1-B9,formula
+"Cost per MQL, capture",300,default (rule of thumb)
+"Cost per MQL, creation",450,default (rule of thumb)
+,,
+Plan (worked back from the goal),Total,Per month
+SAOs needed,=B3/B4,=B15/$B$5
+SQLs needed,=B15/B7,=B16/$B$5
+MQLs needed,=B16/B6,=B17/$B$5
+Blended cost per MQL,=B11*B9+B12*B10,
+Budget,=B17*B18,=B19/$B$5
+Capture budget,=B19*B9,=B20/$B$5
+Creation budget,=B19*B10,=B21/$B$5
+Expected closed-won revenue,=B3*B8,=B22/$B$5
+Cost per SAO,=B19/B15,
+Pipeline to spend,=B3/B19,
+,,
+Month,Planned spend,Actual spend,Planned MQLs,Actual MQLs,Planned SQLs,Actual SQLs,Planned SAOs,Actual SAOs,Planned pipeline,"Actual pipeline, capture","Actual pipeline, creation (lower confidence)",Pipeline vs plan
+Month 1,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K27="""","""",(K27+N(L27))/J27-1)"
+Month 2,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K28="""","""",(K28+N(L28))/J28-1)"
+Month 3,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K29="""","""",(K29+N(L29))/J29-1)"
+Month 4,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K30="""","""",(K30+N(L30))/J30-1)"
+Month 5,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K31="""","""",(K31+N(L31))/J31-1)"
+Month 6,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K32="""","""",(K32+N(L32))/J32-1)"
+Month 7,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K33="""","""",(K33+N(L33))/J33-1)"
+Month 8,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K34="""","""",(K34+N(L34))/J34-1)"
+Month 9,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K35="""","""",(K35+N(L35))/J35-1)"
+Month 10,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K36="""","""",(K36+N(L36))/J36-1)"
+Month 11,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K37="""","""",(K37+N(L37))/J37-1)"
+Month 12,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K38="""","""",(K38+N(L38))/J38-1)"
+Total,=SUM(B27:B38),=SUM(C27:C38),=SUM(D27:D38),=SUM(E27:E38),=SUM(F27:F38),=SUM(G27:G38),=SUM(H27:H38),=SUM(I27:I38),=SUM(J27:J38),=SUM(K27:K38),=SUM(L27:L38),"=IF(K39=0,"""",(K39+L39)/J39-1)"
+,,
+Notes,Creation's pipeline is credited from self-reported source and influenced pipeline. Treat it as lower confidence than capture's.,
