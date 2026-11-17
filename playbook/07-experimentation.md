@@ -39,7 +39,7 @@ Your accounts only get better as fast as you learn. A program with a backlog, a 
 
 ## If you see X, do Y
 
-- **Test can't reach sample size in 6 weeks:** make the change bigger or move to a higher-volume metric.
+- **Test can't reach sample size in 6 weeks (rule of thumb):** make the change bigger or move to a higher-volume metric.
 - **Big early lift in week one:** keep running. Early swings shrink.
 - **Variant wins on MQLs but SQL rate drops:** do not ship. Check lead quality with Sales.
 - **Most tests come back flat:** your changes are too small. Test bolder ideas: offer, audience, landing page, not button color.
@@ -76,9 +76,9 @@ Your accounts only get better as fast as you learn. A program with a backlog, a 
 
 - [Ad Copy Analyzer](https://www.redavio.com/attribute-engine-ad-copy) (Exists): finds which ad copy attributes drive performance. A strong source of test ideas with real evidence behind them.
 - [Landing Page Analyzer](https://www.redavio.com/attribute-engine-landing-pages) (Exists): the same for landing pages.
-- [Redavio MCP server](https://www.redavio.com/mcp) (Exists): lets your AI call both analyzers and turn findings into backlog rows.
+- All Redavio tools are listed in the [Library](https://www.redavio.com) and run through the [Redavio MCP server](https://www.redavio.com/mcp-server). Your AI can call both analyzers there and turn findings into backlog rows.
 
-**Best outside sources**
+**Outside sources**
 
 - [Evan Miller sample size calculator](https://www.evanmiller.org/ab-testing/sample-size.html): quick sample size from baseline rate and minimum detectable effect.
 - [Optimizely sample size calculator](https://www.optimizely.com/sample-size-calculator/): same inputs with plain explanations of each one.

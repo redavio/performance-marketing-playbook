@@ -13,9 +13,9 @@ Period: {{period}}. Motion: {{motion}}. Values marked "(default)" are rules of t
 | Stage | Needed this period | Per month | Conversion to next stage |
 | --- | --- | --- | --- |
 | {{MQLs}} | {{mqls}} | {{monthly_mqls}} | {{mql_to_sql}} to {{SQL}} |
-| {{SQLs}} (meeting scheduled) | {{sqls}} | | {{sql_to_sao}} to SAO |
+| {{SQLs}} ({{sql_meaning}}) | {{sqls}} | {{monthly_sqls}} | {{sql_to_sao}} to SAO |
 | SAOs (pipeline) | {{saos}} | {{monthly_saos}} | {{win_rate}} to closed won |
-| Closed won | {{closed_won}} | | |
+| Closed won | {{closed_won}} | {{monthly_closed_won}} | |
 
 Stage names in {{crm}} may differ. Map yours to these before the first report.
 
@@ -37,14 +37,20 @@ Stage names in {{crm}} may differ. Map yours to these before the first report.
 | | Share | Budget | Channels | Judged on |
 | --- | --- | --- | --- | --- |
 | Demand capture | {{capture_share}} | {{capture_budget}} | Paid search, SEO, AEO, review sites, website CRO | Pipeline, cost per SAO, short window |
-| Demand creation | {{creation_share}} | {{creation_budget}} | Paid social, YouTube and CTV, ABM, sponsorships | Target-account engagement, self-reported source, velocity, longer window |
+| Demand creation | {{creation_share}} | {{creation_budget}} | Paid social, YouTube and CTV, display and retargeting, ABM, sponsorships, syndication | Target-account engagement, self-reported source, velocity, longer window |
 
-Channels running now: {{channels}}.
+Expected {{MQLs}}: capture {{capture_mqls}}, creation {{creation_mqls}}.
+
+Budget by channel (equal split within each group unless you set shares; change them in the tracker):
+
+| Channel | Type | Share | Budget | Per month |
+| --- | --- | --- | --- | --- |
+{{channel_rows}}
 
 ## 6. Budget
 
 - Total: **{{budget}}** ({{monthly_budget}} a month), worked back from the pipeline goal.
-- Track plan vs actual monthly in the [budget tracker](budget-tracker.csv).
+- Track plan vs actual monthly in the budget tracker (budget-tracker.csv).
 - Rebalance monthly by marginal return. See [Budget](https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/06-budget.md).
 
 ## 7. Measurement
@@ -59,9 +65,18 @@ Channels running now: {{channels}}.
 1. Weeks 1-2: tracking and offline conversions working end to end; stage names mapped.
 2. Weeks 3-4: capture channels live on the core terms; budget tracker filled.
 3. Month 2: first creation programs live; self-reported "how did you hear about us" field on every form.
-4. Month 3: first tests from the [experiment database](experiment-database.csv); first QBR.
+4. Month 3: first tests from the experiment database (experiment-database.csv); first QBR.
 
-## 9. Risks and asks
+## 9. Priorities
 
-- Risk: defaults used for {{defaults_used}}. Replace with real numbers by the first QBR.
+| Initiative | Principle | Owner | Due |
+| --- | --- | --- | --- |
+| Offline conversions for SQL and SAO live in every ad platform | Data driven | | |
+| Agree MQL, SQL and SAO definitions with Sales | Strategic alignment | | |
+| Weekly update and budget tracker running | Operational excellence | | |
+| First three tests from the experiment database | Rapid experimentation | | |
+
+## 10. Risks and asks
+
+- Risk: rule-of-thumb defaults used for: {{defaults_used}}. Replace them with your last 3 months of actuals by the first QBR.
 - Ask: Sales agrees the SAO definition and updates stages within two business days.

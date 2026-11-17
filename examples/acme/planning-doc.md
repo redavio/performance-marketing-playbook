@@ -1,6 +1,6 @@
 # Acme Analytics: performance marketing plan
 
-Period: 12 months. Motion: sales-led. Values marked "(default)" are rules of thumb from [defaults.md](https://github.com/redavio/performance-marketing-playbook/blob/main/deliverables/defaults.md); replace them with your own numbers when you have them.
+Period: 12 months from Jan 2027. Motion: sales-led. Values marked "(default)" are rules of thumb from [defaults.md](https://github.com/redavio/performance-marketing-playbook/blob/main/deliverables/defaults.md); replace them with your own numbers when you have them.
 
 ## 1. Goals
 
@@ -13,17 +13,17 @@ Period: 12 months. Motion: sales-led. Values marked "(default)" are rules of thu
 | Stage | Needed this period | Per month | Conversion to next stage |
 | --- | --- | --- | --- |
 | MQLs | 667 | 56 | 25% (default) to SQL |
-| SQLs (meeting scheduled) | 167 | | 60% (default) to SAO |
+| SQLs (meeting scheduled) | 167 | 14 | 60% (default) to SAO |
 | SAOs (pipeline) | 100 | 8.3 | 20% (default) to closed won |
-| Closed won | 20 | | |
+| Closed won | 20 | 1.7 | |
 
 Stage names in HubSpot (default) may differ. Map yours to these before the first report.
 
 ## 3. Unit economics
 
-- Blended cost per MQL: $360 (capture $300 (default), creation $450 (default)).
-- Cost per SAO: $2,400.
-- Pipeline to spend: 12.5x.
+- Blended cost per MQL: $346 (capture $300 (default), creation $450 (default)).
+- Cost per SAO: $2,308.
+- Pipeline to spend: 13.0x.
 - Add CAC, payback and LTV once Finance shares gross margin and retention. See [Align to the business](https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/02-align-to-the-business.md).
 
 ## 4. Who we sell to
@@ -36,15 +36,23 @@ Stage names in HubSpot (default) may differ. Map yours to these before the first
 
 | | Share | Budget | Channels | Judged on |
 | --- | --- | --- | --- | --- |
-| Demand capture | 60% (default) | $144,000 | Paid search, SEO, AEO, review sites, website CRO | Pipeline, cost per SAO, short window |
-| Demand creation | 40% (default) | $96,000 | Paid social, YouTube and CTV, ABM, sponsorships | Target-account engagement, self-reported source, velocity, longer window |
+| Demand capture | 60% (default) | $138,462 | Paid search, SEO, AEO, review sites, website CRO | Pipeline, cost per SAO, short window |
+| Demand creation | 40% (default) | $92,308 | Paid social, YouTube and CTV, display and retargeting, ABM, sponsorships, syndication | Target-account engagement, self-reported source, velocity, longer window |
 
-Channels running now: Google Ads, Microsoft Ads, LinkedIn Ads (default).
+Expected MQLs: capture 462, creation 205.
+
+Budget by channel (equal split within each group unless you set shares; change them in the tracker):
+
+| Channel | Type | Share | Budget | Per month |
+| --- | --- | --- | --- | --- |
+| Google Ads | capture | 50% of capture | $69,231 | $5,769 |
+| Microsoft Ads | capture | 50% of capture | $69,231 | $5,769 |
+| LinkedIn Ads | creation | 100% of creation | $92,308 | $7,692 |
 
 ## 6. Budget
 
-- Total: **$240,000** ($20,000 a month), worked back from the pipeline goal.
-- Track plan vs actual monthly in the [budget tracker](budget-tracker.csv).
+- Total: **$230,769** ($19,231 a month), worked back from the pipeline goal.
+- Track plan vs actual monthly in the budget tracker (budget-tracker.csv).
 - Rebalance monthly by marginal return. See [Budget](https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/06-budget.md).
 
 ## 7. Measurement
@@ -59,9 +67,18 @@ Channels running now: Google Ads, Microsoft Ads, LinkedIn Ads (default).
 1. Weeks 1-2: tracking and offline conversions working end to end; stage names mapped.
 2. Weeks 3-4: capture channels live on the core terms; budget tracker filled.
 3. Month 2: first creation programs live; self-reported "how did you hear about us" field on every form.
-4. Month 3: first tests from the [experiment database](experiment-database.csv); first QBR.
+4. Month 3: first tests from the experiment database (experiment-database.csv); first QBR.
 
-## 9. Risks and asks
+## 9. Priorities
 
-- Risk: defaults used for capture_share, channels, cost_per_mql_capture, cost_per_mql_creation, crm, months, motion, mql_to_sql, sales_cycle_days, sql_to_sao, win_rate. Replace with real numbers by the first QBR.
+| Initiative | Principle | Owner | Due |
+| --- | --- | --- | --- |
+| Offline conversions for SQL and SAO live in every ad platform | Data driven | | |
+| Agree MQL, SQL and SAO definitions with Sales | Strategic alignment | | |
+| Weekly update and budget tracker running | Operational excellence | | |
+| First three tests from the experiment database | Rapid experimentation | | |
+
+## 10. Risks and asks
+
+- Risk: rule-of-thumb defaults used for: MQL to SQL rate, SQL to SAO rate, win rate, sales cycle, capture/creation split, capture cost per MQL, creation cost per MQL. Replace them with your last 3 months of actuals by the first QBR.
 - Ask: Sales agrees the SAO definition and updates stages within two business days.

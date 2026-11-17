@@ -44,7 +44,7 @@ Ad platforms optimize toward whatever you tell them is a conversion. If that is 
 
    Use real stage rates once you have three months of data. A content-download MQL may be worth a fraction of a demo MQL; value them separately.
 
-4. **Send offline conversions back.** Upload SQL, SAO and closed won from the CRM to Google and Microsoft Ads against the click ID, with the values above. On Google, use enhanced conversions for leads or offline conversion imports (Google is moving these imports to its Data Manager API; check the current method in Google Ads Help). Do the same for LinkedIn and other platforms through their conversion integrations. Default: upload daily. Then set campaigns to optimize to SQL or SAO value once each campaign has enough volume; until then, optimize to MQL with values so the platform still prefers hand-raisers. The deep paid search setup is in [performance-os](https://github.com/redavio/performance-os).
+4. **Send offline conversions back.** Upload SQL, SAO and closed won from the CRM to Google and Microsoft Ads against the click ID, with the values above. On Google, use enhanced conversions for leads or offline conversion imports (Google is moving these imports to its Data Manager API; check the current method in Google Ads Help). Do the same for LinkedIn and other platforms through their conversion integrations. Default: upload daily. Then set campaigns to optimize to SQL or SAO value once each campaign has enough volume (rule of thumb: about 30 conversions in 30 days per campaign; see [Demand capture](04-demand-capture.md)); until then, optimize to MQL with values so the platform still prefers hand-raisers. The deep paid search setup is in [performance-os](https://github.com/redavio/performance-os).
 
 5. **Choose attribution models for each job.** No model proves cause. Each answers a different question.
 
@@ -67,15 +67,23 @@ Ad platforms optimize toward whatever you tell them is a conversion. If that is 
 
    Run at least one cause test a year on your largest channel (rule of thumb). See [Experimentation](07-experimentation.md).
 
-7. **Measure capture and creation differently.**
+7. **Measure capture and creation differently,** as set out below.
 
-   | | Demand capture (paid search, SEO, AEO) | Demand creation (paid social, YouTube and CTV, display, ABM, sponsorships, syndication) |
-   | --- | --- | --- |
-   | Primary measure | Pipeline and revenue, cost per qualified opportunity | Target-account reach and engagement, pipeline velocity, self-reported "how did you hear about us" |
-   | Window | Short | Longer; never judged on last click |
-   | Proof of cause | Brand vs non-brand checks, geo holdouts | Lift tests, holdout accounts |
+### Measuring capture vs creation
 
-   See [Demand capture](04-demand-capture.md), [Demand creation](05-demand-creation.md) and [Cross-channel](11-cross-channel-and-working-with-others.md).
+Demand capture meets people who are already looking. Demand creation reaches buyers before they look, so they search for you later. Judge each on its own terms:
+
+| | Demand capture (paid search, SEO, AEO) | Demand creation (paid social, YouTube and CTV, display, ABM, sponsorships, syndication) |
+| --- | --- | --- |
+| Primary measure | Pipeline and revenue, cost per qualified opportunity | Target-account reach and engagement, pipeline velocity, self-reported "how did you hear about us" |
+| Window | Short | Longer; never judged on last click |
+| Proof of cause | Brand vs non-brand checks, geo holdouts | Lift tests, holdout accounts |
+
+See [Demand capture](04-demand-capture.md), [Demand creation](05-demand-creation.md) and [Cross-channel](11-cross-channel-and-working-with-others.md).
+
+### Influenced pipeline
+
+Influenced pipeline is an opportunity created at a target account that had a paid creation touch, such as an ad engagement, in the 90 days before the opportunity was created (the 90-day window is a rule of thumb). Count it separately from sourced pipeline (opportunities tracked to a click or a self-reported source). Never add the two together: the same deal would be counted twice. Label it lower confidence.
 
 ## If you see X, do Y
 
@@ -117,7 +125,7 @@ Ad platforms optimize toward whatever you tell them is a conversion. If that is 
 - [performance-os](https://github.com/redavio/performance-os) (Exists, open source): conversion and offline conversion setup for Google and Microsoft Ads.
 - Account Influence Analyzer (Planned): which ABM touches move accounts through stages, measured by lift.
 - Driver breakdown (Planned): which drivers explain a gap to goal.
-- All Redavio tools are reachable by your AI through the [Redavio MCP server](https://www.redavio.com/mcp).
+- All Redavio tools are listed in the [Library](https://www.redavio.com) and run through the [Redavio MCP server](https://www.redavio.com/mcp-server).
 
 **Outside sources**
 

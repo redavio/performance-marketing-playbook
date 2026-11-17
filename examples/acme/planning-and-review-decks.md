@@ -1,12 +1,12 @@
 # Acme Analytics: planning and review decks
 
-Slide-by-slide outlines. Build each on the [slide template](slide-template.md) (the PowerPoint version is [slide-template.pptx](slide-template.pptx); it opens in Google Slides). One message per slide, written as the slide title.
+Slide-by-slide outlines. Build each on the slide template ([slide-template.pptx](https://github.com/redavio/performance-marketing-playbook/blob/main/deliverables/slide-template.pptx); it opens in Google Slides). One message per slide, written as the slide title.
 
 ---
 
 ## QBR (quarterly business review)
 
-**For:** leadership, Sales, Finance, RevOps. **When:** within two weeks of quarter end. **Length:** 10-12 slides, 45 minutes. The first half is last quarter's postmortem; the second half is next quarter's plan.
+**For:** leadership, Sales, Finance, RevOps. **When:** in the last two weeks of the quarter, so next quarter's plan is agreed before it starts. The quarter postmortem follows within two weeks after it ends. **Length:** 10-13 slides, 45 minutes. The first half is last quarter's postmortem; the second half is next quarter's plan.
 
 1. **Title:** Acme Analytics marketing QBR, [quarter].
 2. **The headline:** pipeline vs goal and the one-sentence reason.
@@ -19,21 +19,22 @@ Slide-by-slide outlines. Build each on the [slide template](slide-template.md) (
 9. **Next quarter's budget:** total and split by capture and creation, with the reason for any change.
 10. **Priorities:** top 3 initiatives, each tagged with a principle and an owner.
 11. **Test roadmap:** the top tests by ICS score.
-12. **Asks and risks.**
+12. **Principles scorecard:** each of the four principles scored 1-5 with one line of evidence ([Principles](https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/01-principles.md)).
+13. **Asks and risks.**
 
 ---
 
 ## Annual plan
 
-**For:** CEO, leadership, Finance, board (summary). **When:** finalized 4-6 weeks before the year starts, alongside the company budget. **Length:** 12-15 slides.
+**For:** CEO, leadership, Finance, board (summary). **When:** drafted 8 weeks before the year starts, final 4 weeks before, alongside the company budget. **Length:** 12-15 slides.
 
 1. **Title:** Acme Analytics marketing plan, [year].
 2. **Last year in one slide:** pipeline vs goal, what worked, what didn't.
 3. **Company goal:** revenue target and the share marketing owns.
 4. **Our goal:** $3,000,000 pipeline, $600,000 expected closed won.
-5. **Funnel math:** 667 MQLs → 167 SQLs → 100 SAOs → 20 closed won, at the conversion rates in the [planning doc](planning-doc.md).
-6. **Budget:** $240,000 total; capture $144,000, creation $96,000; by quarter.
-7. **Unit economics:** cost per SAO $2,400, pipeline to spend 12.5x, CAC and payback from Finance.
+5. **Funnel math:** 667 MQLs → 167 SQLs → 100 SAOs → 20 closed won, at the conversion rates in the planning doc.
+6. **Budget:** $230,769 total; capture $138,462, creation $92,308; by quarter.
+7. **Unit economics:** cost per SAO $2,308, pipeline to spend 13.0x, CAC and payback from Finance.
 8. **Who we sell to:** ICP, competitors, voice of customer.
 9. **Channel plan:** each channel's role, budget and measure.
 10. **Big bets:** 2-3 larger moves for the year.
@@ -57,4 +58,4 @@ Use one structure for the year, the quarter, or any test, launch or campaign. **
 6. **What we'd do differently:** concrete changes, each with an owner and a date.
 7. **What it means for the plan:** budget, targets or tests to change now.
 
-For a year or quarter, add the funnel vs plan table from the QBR. For a test, add the hypothesis, the ICS score given before it ran, the predicted and actual lift, and log both in the [experiment database](experiment-database.csv).
+For a year or quarter, add the funnel vs plan table from the QBR. For a test, add the hypothesis, the ICS score given before it ran, the predicted and actual lift, and log both in the experiment database.

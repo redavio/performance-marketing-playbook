@@ -14,9 +14,9 @@ Most of your future buyers are not searching yet. Demand creation teaches the ri
 
 ## Do this
 
-1. **Judge creation on the right things.** Primary measures: reach and engagement among target accounts, pipeline velocity (how fast engaged accounts move stages), and self-reported "how did you hear about us". Use a longer window: a full sales cycle or two. Never judge it on last click.
+1. **Measure it as creation, not capture.** Never on last click. The measures, window and proof of cause are in [Measurement](03-measurement.md#measuring-capture-vs-creation).
 2. **Prove cause with lift.** Split your target accounts into a test group and a holdout group that sees no ads. After a quarter, compare meetings, SAOs and branded search between them. Use platform lift studies where offered.
-3. **Credit with honesty.** In the [budget tracker](../deliverables/budget-tracker.csv), count creation pipeline from self-reported source and influenced accounts, labelled lower confidence ([03-measurement.md](03-measurement.md)).
+3. **Credit with honesty.** In the [budget tracker](../deliverables/budget-tracker.csv), count creation pipeline from self-reported source and [influenced pipeline](03-measurement.md#influenced-pipeline), labelled lower confidence.
 4. **Start with one channel done well:** LinkedIn for most B2B SaaS, then add one more once you can see lift.
 
 ### Paid social: LinkedIn, Meta, Reddit
@@ -30,7 +30,7 @@ Most of your future buyers are not searching yet. Demand creation teaches the ri
 
 ### YouTube and connected TV
 
-1. Use YouTube to put short explainer and customer-story video in front of custom segments (people who searched your category, or your site visitors).
+1. Use YouTube to put short explainer and customer-story video in front of custom segments (audiences Google builds from the search terms or websites you list, such as your category searches) or your site visitors.
 2. CTV is a brand play for later. Wait until you have a strong video and enough budget to reach your markets repeatedly.
 3. Measure with a brand lift study or a geo test, and watch branded search in the regions you ran.
 4. **Primary metric:** cost per completed view among your audience, then lift in branded search.
@@ -42,7 +42,7 @@ Most of your future buyers are not searching yet. Demand creation teaches the ri
 2. Cap frequency and exclude customers and open opportunities.
 3. Use one account-level placement exclusion list for junk apps and sites.
 4. **Primary metric:** return visits and meetings from retargeted accounts, not view-through conversions.
-5. **Best source:** [Google Ads Help](https://support.google.com/google-ads) for audience and placement setup.
+5. **Best sources:** [Google Ads Help: About Display ads and the Google Display Network](https://support.google.com/google-ads/answer/2404190) for how display campaigns reach people; [Google Ads Help: About your data segments](https://support.google.com/google-ads/answer/2453998) for retargeting site visitors and customer lists.
 
 ### ABM platforms
 
@@ -57,7 +57,7 @@ Most of your future buyers are not searching yet. Demand creation teaches the ri
 1. Pick by audience fit, not size. Ask for the subscriber or attendee breakdown by title and company size.
 2. Buy a run of three or more placements (rule of thumb); one-offs are hard to read.
 3. Give each sponsorship its own link and a named offer, and add it as a choice on "how did you hear about us".
-4. At events, book meetings before you go. Count meetings held and SAOs, not badge scans.
+4. At events, book meetings before you go. Count meetings booked (SQLs) and SAOs, not badge scans.
 5. **Primary metric:** self-reported mentions and meetings per dollar.
 6. **Best sources:** [Exit Five](https://www.exitfive.com/) for B2B sponsorship and community; [SaaStr](https://www.saastr.com/blog/) for events and go-to-market.
 
@@ -74,6 +74,7 @@ Most of your future buyers are not searching yet. Demand creation teaches the ri
 2. Send product-led signups an onboarding sequence that drives the activation step tied to conversion.
 3. Suppress open opportunities and customers from acquisition email.
 4. **Primary metric:** MQL to SQL rate from nurtured leads; activation rate for signups.
+5. **Best sources:** [Litmus State of Email](https://www.litmus.com/resources/state-of-email) for how teams run and measure email; [Mailchimp email marketing benchmarks](https://mailchimp.com/resources/email-marketing-benchmarks/) for open and click rates by industry.
 
 ## If you see X, do Y
 
@@ -90,7 +91,7 @@ Most of your future buyers are not searching yet. Demand creation teaches the ri
 - Pipeline velocity: days between stages for engaged vs not-engaged accounts.
 - Self-reported source mentions per month.
 - Lift versus holdout accounts: meetings, SAOs, branded search.
-- Influenced pipeline, labelled lower confidence.
+- [Influenced pipeline](03-measurement.md#influenced-pipeline), labelled lower confidence.
 
 ## Common mistakes
 
@@ -98,7 +99,7 @@ Most of your future buyers are not searching yet. Demand creation teaches the ri
 - Gating everything behind forms and handing the leads to Sales.
 - Running too many channels at once with too little budget each.
 - No holdout, so nothing can be proven.
-- Stopping after six weeks. Creation pays back over a sales cycle or more.
+- Stopping after six weeks. Creation pays back over a sales cycle or more; give it two quarters (rule of thumb).
 
 ## Call an expert when
 
@@ -113,9 +114,9 @@ Most of your future buyers are not searching yet. Demand creation teaches the ri
 - Account Influence Analyzer (Planned): which ABM touches move accounts through stages, measured by lift.
 - [Marketing Correlation Analyzer](https://www.redavio.com/marketing-correlation) (Exists): for example, does LinkedIn reach move with branded search and direct traffic.
 - [Ad Copy Analyzer](https://www.redavio.com/attribute-engine-ad-copy) (Exists): which copy attributes drive engagement.
-- All are reachable by your AI through the [Redavio MCP server](https://www.redavio.com/mcp).
+- All Redavio tools are listed in the [Library](https://www.redavio.com) and run through the [Redavio MCP server](https://www.redavio.com/mcp-server).
 
-**Best outside sources**
+**Outside sources**
 
 - [LinkedIn Marketing Solutions](https://business.linkedin.com/marketing-solutions): official LinkedIn ads docs and B2B research.
 - [Exit Five](https://www.exitfive.com/): practical B2B marketing from operators, with a [podcast](https://www.exitfive.com/podcast).

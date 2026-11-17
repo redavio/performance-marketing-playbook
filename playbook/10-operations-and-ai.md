@@ -2,7 +2,7 @@
 
 ## Why it matters
 
-One person can run several channels well only if the routine work runs itself: data flows on its own, alerts catch problems, and AI drafts the analysis. Done carelessly, the same automation can spend money nobody approved. This section covers both sides.
+One person can run several channels well only if the routine work runs itself: data flows on its own, alerts catch problems, and AI drafts the analysis. Done carelessly, the same automation can spend money nobody approved.
 
 ## Ask first
 
@@ -21,14 +21,14 @@ One person can run several channels well only if the routine work runs itself: d
    - The platform APIs (Google Ads API, Microsoft Advertising API) when you need full control.
 3. **Set alerts before anything else.** They cover the daily checks. Defaults (rule of thumb; tune after a month):
    - No conversions recorded on any channel for 24 hours: tracking alert.
-   - Spend pacing more than 15% over or under plan month to date.
+   - Spend pacing more than 15% over or under plan month to date. This is wider than the ±10% plan tolerance in [Budget](06-budget.md), so it only fires on real misses.
    - A campaign spends more than 2x your target cost per MQL with zero conversions.
    - Offline conversion upload or CRM sync failed.
    - Ads disapproved.
    Send alerts where you already look (email or Slack), one open alert per issue, not one per hour.
 4. **Automate the reports.** Draft the weekly update and monthly report from the tracker on a schedule. A person reviews and sends them ([08-reporting-and-communication](08-reporting-and-communication.md)).
 5. **Connect your AI through MCP.** The Model Context Protocol is an open standard that lets an AI assistant call outside tools. Add an MCP server's address in your assistant's connector settings and it can use that server's tools in chat.
-6. **Add the Redavio MCP server.** One address, [redavio.com/mcp](https://www.redavio.com/mcp), gives your AI every Redavio tool, such as the ad copy and landing page analyzers, plus this playbook's own tools (playbook_guide and playbook_deliverable). Your AI does the reasoning; the tools fetch, measure and return results. Example asks:
+6. **Add the Redavio MCP server.** Paste this address into your AI app's connector settings: `https://www.redavio.com/mcp`. It gives your AI every Redavio tool, such as the ad copy and landing page analyzers, plus this playbook's own tools (playbook_guide and playbook_deliverable). Your AI does the reasoning; the tools fetch, measure and return results. Setup steps are on the [Redavio MCP server](https://www.redavio.com/mcp-server) page. Example asks:
    - "Using the playbook, what should a team with $50K a month and no offline conversions do first?"
    - "Fill the budget tracker for a $3M pipeline goal and a $30K deal size."
    - "Run the Landing Page Analyzer on our top five pages and add test ideas to the backlog."
@@ -71,12 +71,12 @@ One person can run several channels well only if the routine work runs itself: d
 
 **Related tools**
 
-- [Redavio MCP server](https://www.redavio.com/mcp) (Exists): one address that gives your AI every Redavio tool, including this playbook's tools.
+- All Redavio tools are listed in the [Library](https://www.redavio.com) and run through the [Redavio MCP server](https://www.redavio.com/mcp-server). That includes this playbook's own tools.
 - [Ad Budget Optimizer](https://www.redavio.com/budget-optimizer) (Exists, free): budget recommendations on Google and Microsoft Ads, applied only after you approve. Has its own MCP server for connected accounts.
 - [Research Agent](https://www.redavio.com/research-agent) (Exists): a scheduled brief on the news that matters, delivered without you asking.
 - [Google Sheet to CMS Landing Page](https://www.redavio.com/google-sheet-to-cms-landing-page) (Exists): builds landing pages in bulk from a sheet.
 
-**Best outside sources**
+**Outside sources**
 
 - [What is the Model Context Protocol?](https://modelcontextprotocol.io/docs/getting-started/intro): the official introduction to MCP and which assistants support it.
 - [MCP security best practices](https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices): what to check before connecting a server to company data.

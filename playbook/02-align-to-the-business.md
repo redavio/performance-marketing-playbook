@@ -28,11 +28,11 @@ Paid acquisition is judged on pipeline and revenue, not clicks. If you do not kn
    - LTV = monthly revenue per customer × gross margin ÷ monthly churn rate.
    - Targets: LTV at least 3× CAC (David Skok, For Entrepreneurs). CAC payback under 12 months for SMB, under 18 for mid-market, under 24 for enterprise (Bessemer, Scaling to $100 Million).
 4. **Set guardrails.** Write them in the [planning doc](../deliverables/planning-doc.md). Defaults (rule of thumb):
-   - Maximum paid cost per closed-won deal: the amount that keeps CAC payback inside the target once sales cost is added. Paid cost per closed-won = cost per SAO ÷ win rate. At the defaults: $2,400 ÷ 20% = $12,000 per deal. On a $30,000 first-year deal ($2,500 a month) at an assumed 80% gross margin, paid media alone pays back in 6 months. Ask Finance how many months that leaves for sales cost. If there is no room, the goal, deal size or budget needs to change. See [Budget](06-budget.md) for where the $2,400 comes from.
-   - Monthly spend never exceeds plan by more than 10% without approval.
+   - Maximum paid cost per closed-won deal: the amount that keeps CAC payback inside the target once sales cost is added. Paid cost per closed-won = cost per SAO ÷ win rate. At the defaults: $2,308 ÷ 20% = $11,538 per deal. On a $30,000 first-year deal ($2,500 a month) at an assumed 80% gross margin, paid media alone pays back in about 6 months. Ask Finance how many months that leaves for sales cost. If there is no room, the goal, deal size or budget needs to change. See [Budget](06-budget.md) for where the $2,308 comes from.
+   - Monthly spend never exceeds plan by more than 10% without approval. That is the ±10% plan tolerance in [Budget](06-budget.md).
    - No new channel without a written test plan. See [Experimentation](07-experimentation.md).
-5. **Agree stage definitions with Sales.** In one meeting, write down what counts as MQL, SQL, SAO and closed won, who moves a record between stages, and how fast Sales follows up. A rule of thumb: hand-raisers (demo or contact requests) get a reply within one business day. Map your CRM's stage names to these. See [Measurement](03-measurement.md).
-6. **Collect voice of customer.** Before writing ads, read or listen to at least 10 sales calls, win/loss notes or customer interviews. Record the problem in their words, the trigger that made them look, the alternatives they considered and the objections. Use the exact phrases in ads and landing pages. See [Demand capture](04-demand-capture.md) and [Demand creation](05-demand-creation.md).
+5. **Agree stage definitions with Sales.** In one meeting, write down what counts as MQL, SQL, SAO and closed won, who moves a record between stages, and how fast Sales follows up. A rule of thumb: demo requests get a reply the same business day, other MQLs within one business day. Map your CRM's stage names to these. See [Measurement](03-measurement.md).
+6. **Collect voice of customer.** Before writing ads, read or listen to at least 10 sales calls, win/loss notes or customer interviews (rule of thumb). Record the problem in their words, the trigger that made them look, the alternatives they considered and the objections. Use the exact phrases in ads and landing pages. See [Demand capture](04-demand-capture.md) and [Demand creation](05-demand-creation.md).
 7. **Write positioning in one paragraph.** Who it is for, the problem, the category, the main alternative and why you win. If Product Marketing owns this, use theirs.
 8. **Set the Sales rhythm.** A weekly 30-minute check with a sales leader: lead quality, follow-up speed, lost reasons. Monthly: pipeline from marketing vs goal. See [Cross-channel and working with others](11-cross-channel-and-working-with-others.md).
 
@@ -76,7 +76,7 @@ Paid acquisition is judged on pipeline and revenue, not clicks. If you do not kn
 - [Research Agent](https://www.redavio.com/research-agent) (Exists): a brief on competitor and market news.
 - [Marketing Correlation Analyzer](https://www.redavio.com/marketing-correlation) (Exists): checks whether two metrics move together, such as lead volume and SAOs.
 - Driver breakdown (Planned): which drivers explain a gap to goal.
-- All Redavio tools are reachable by your AI through the [Redavio MCP server](https://www.redavio.com/mcp).
+- All Redavio tools are listed in the [Library](https://www.redavio.com) and run through the [Redavio MCP server](https://www.redavio.com/mcp-server).
 
 **Outside sources**
 

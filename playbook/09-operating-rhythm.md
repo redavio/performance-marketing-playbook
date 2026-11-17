@@ -20,7 +20,7 @@ Most paid accounts fail from neglect, not bad strategy: broken tracking nobody n
    - **Finance:** owns budget sign-off and invoice reconciliation.
    - **Sales leader:** gives lead quality feedback.
    One person can hold several roles at a small company.
-2. **Import the task list.** Every task below is a row in [recurring-tasks.csv](../deliverables/recurring-tasks.csv). Set recurrence and assignee on import.
+2. **Import the task list.** Every task below is a row in [recurring-tasks.csv](../deliverables/recurring-tasks.csv). CSV imports into ClickUp and Asana do not set recurrence. Import the CSV, then set recurrence and assignee on each task, or ask your AI to create them as recurring tasks through its connector.
 3. **Run the tasks below.** Do the daily ones first thing, before you change anything.
 
 ### Daily
@@ -29,7 +29,7 @@ Most paid accounts fail from neglect, not bad strategy: broken tracking nobody n
 | --- | --- | --- |
 | D1 | Check alerts and confirm conversions recorded yesterday on every channel | Paid acquisition owner |
 | D2 | Check spend pacing vs budget by channel | Paid acquisition owner |
-| D3 | Scan for flagrant spend: anything spending with no conversions above your alert threshold | Paid acquisition owner |
+| D3 | Scan for flagrant spend (a campaign or keyword that has spent past your alert threshold with no conversions) | Paid acquisition owner |
 | D4 | Review and approve or reject pending change recommendations | Paid acquisition owner |
 
 ### Weekly
@@ -65,16 +65,16 @@ Most paid accounts fail from neglect, not bad strategy: broken tracking nobody n
 | Q2 | Back-test ICS scores against test results in the test log | Paid acquisition owner |
 | Q3 | Replace default conversion rates and costs with your last 3 months of actuals | RevOps |
 | Q4 | Plan or run one proof-of-cause check (brand vs non-brand, geo or account holdout) | Paid acquisition owner |
-| Q5 | Write the quarter postmortem | Paid acquisition owner |
+| Q5 | Write the quarter postmortem (within 2 weeks after quarter end) | Paid acquisition owner |
 | Q6 | Build next quarter's plan and budget | Marketing lead |
-| Q7 | Run the QBR (within 2 weeks of quarter end) | Marketing lead |
+| Q7 | Run the QBR (in the last 2 weeks of the quarter, so next quarter's plan is agreed before it starts) | Marketing lead |
 
 ### Yearly
 
 | # | Task | Owner |
 | --- | --- | --- |
-| Y1 | Write the annual postmortem | Marketing lead |
-| Y2 | Build the annual plan and budget with Finance | Marketing lead |
+| Y1 | Write the annual postmortem (within 2 weeks after year end) | Marketing lead |
+| Y2 | Build the annual plan and budget with Finance (draft 8 weeks before the year starts, final 4 weeks before; rule of thumb) | Marketing lead |
 | Y3 | Review tracking and attribution end to end | RevOps |
 | Y4 | Review tools, vendors and contracts before renewals | Marketing lead |
 | Y5 | Clean up user access on every ad account and tool | Paid acquisition owner |
@@ -118,9 +118,9 @@ Most paid accounts fail from neglect, not bad strategy: broken tracking nobody n
 
 - [Ad Budget Optimizer](https://www.redavio.com/budget-optimizer) (Exists, free): recommends budget changes on Google and Microsoft Ads and applies them after you approve. Covers D2, D4 and M4.
 - [Research Agent](https://www.redavio.com/research-agent) (Exists): a scheduled brief on the news that matters. Covers M6.
-- [Redavio MCP server](https://www.redavio.com/mcp) (Exists): one address that gives your AI every tool above.
+- All Redavio tools are listed in the [Library](https://www.redavio.com) and run through the [Redavio MCP server](https://www.redavio.com/mcp-server).
 
-**Best outside sources**
+**Outside sources**
 
 - [Google Ads: About change history](https://support.google.com/google-ads/answer/19888): who changed what and when. Use it for W6 and when cost jumps.
 - [Google Ads: Set up automated rules](https://support.google.com/google-ads/answer/2472779): email alerts or simple rules when conditions are met.

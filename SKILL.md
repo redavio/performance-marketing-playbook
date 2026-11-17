@@ -35,11 +35,13 @@ The playbook is in `playbook/` (12 sections) and the deliverable templates are i
 
 ## When someone wants a deliverable
 
-1. Get their inputs. Only two are needed: a pipeline goal (or revenue goal) and the average deal size. Everything else has a default in `deliverables/defaults.md`; ask for the ones they know (conversion rates, cost per MQL, months, motion, channels, CRM, competitors, ICP) and say which defaults you used.
+1. Get their inputs. Only two are needed: a pipeline goal (or revenue goal) and the average deal size. Everything else has a default in `deliverables/defaults.md`; ask for the ones they know (conversion rates, cost per MQL, months, start date, motion, channels and each channel's share, CRM, competitors, ICP) and say which defaults you used.
 2. Write the inputs to a JSON file, for example:
 
    ```json
-   {"company": "Acme", "pipeline_goal": 3000000, "deal_size": 30000, "mql_to_sql": 0.3}
+   {"company": "Acme", "pipeline_goal": 3000000, "deal_size": 30000, "mql_to_sql": 0.3,
+    "start_date": "2027-01-04", "channels": ["Google Ads", "Microsoft Ads", "LinkedIn Ads"],
+    "channel_shares": {"Google Ads": 0.8, "Microsoft Ads": 0.2}}
    ```
 
 3. Run, using the path to the folder this file is in:
@@ -48,8 +50,8 @@ The playbook is in `playbook/` (12 sections) and the deliverable templates are i
    python3 <skill-folder>/fill.py plan inputs.json --out <output-folder>
    ```
 
-   It writes all seven deliverables filled in: planning-doc.md, budget-tracker.csv (live formulas), recurring-tasks.csv, slide-template.md, regular-updates.md, planning-and-review-decks.md, experiment-database.csv. `python3 fill.py math inputs.json` prints just the numbers. Never do the funnel or budget math yourself; use the script's numbers.
-4. If the person has Google Docs, Sheets, Slides, ClickUp, Asana or Notion connected, create the deliverables there: the planning doc and updates as docs, the budget tracker and experiment database as sheets (import the CSV so formulas stay live), the decks in Slides starting from `deliverables/slide-template.pptx`, the recurring tasks as recurring tasks. Otherwise give them the files.
+   It writes all seven deliverables filled in: planning-doc.md, budget-tracker.csv (live formulas), recurring-tasks.csv, slide-template.md, regular-updates.md, planning-and-review-decks.md, experiment-database.csv, plus slide-template.pptx filled with their numbers if python-pptx is installed. `python3 fill.py math inputs.json` prints just the numbers. Never do the funnel or budget math yourself; use the script's numbers.
+4. If the person has Google Docs, Sheets, Slides, ClickUp, Asana or Notion connected, create the deliverables there: the planning doc and updates as docs, the budget tracker and experiment database as sheets (import the CSV so formulas stay live), the decks in Slides starting from the filled slide-template.pptx (or `deliverables/slide-template.pptx`), the recurring tasks as recurring tasks (a CSV import does not set recurrence). Otherwise give them the files.
 5. To back-test experiment scores: `python3 fill.py calibrate experiments.csv` on their filled experiment database.
 
 ## Rules

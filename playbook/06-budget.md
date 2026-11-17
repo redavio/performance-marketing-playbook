@@ -22,18 +22,18 @@ Budget is the biggest lever you control. Work it back from the pipeline goal so 
    | SAOs needed | Pipeline goal ÷ deal size | $3,000,000 ÷ $30,000 = 100 |
    | SQLs needed | SAOs ÷ SQL to SAO rate | 100 ÷ 60% = 167 |
    | MQLs needed | SQLs ÷ MQL to SQL rate | 167 ÷ 25% = 667 |
-   | Blended cost per MQL | Capture cost × capture share + creation cost × creation share | $300 × 60% + $450 × 40% = $360 |
-   | Budget | MQLs × blended cost per MQL | 667 × $360 = $240,000 |
-   | Capture / creation | Budget × each share | $144,000 / $96,000 |
+   | Blended cost per MQL | 1 ÷ (capture share ÷ capture cost + creation share ÷ creation cost) | 1 ÷ (60% ÷ $300 + 40% ÷ $450) = $346 |
+   | Budget | MQLs × blended cost per MQL | 667 × $346 = $230,769 |
+   | Capture / creation | Budget × each share, then ÷ each cost per MQL | $138,462 (462 MQLs) / $92,308 (205 MQLs) |
    | Expected revenue | Pipeline goal × win rate | $3,000,000 × 20% = $600,000 |
-   | Cost per SAO | Budget ÷ SAOs | $2,400 |
-   | Pipeline-to-spend | Pipeline goal ÷ budget | 12.5 to 1 |
+   | Cost per SAO | Budget ÷ SAOs | $2,308 |
+   | Pipeline-to-spend | Pipeline goal ÷ budget | 13 to 1 |
 
-   Figures are rounded for display; the tracker keeps full precision ($240,000 comes from 666.7 MQLs). If you have a revenue goal instead, set pipeline goal = revenue goal ÷ win rate first. Monthly plan = each number ÷ months in the period: here $20,000 a month and about 8 SAOs.
+   Figures are rounded for display; the tracker keeps full precision ($230,769 comes from 666.7 MQLs). The blended cost is not a simple average: each part of the budget buys MQLs at its own cost, so the cheaper channel's share counts for more. If you have a revenue goal instead, set pipeline goal = revenue goal ÷ win rate first. Monthly plan = each number ÷ months in the period: here $19,231 a month and about 8 SAOs. The tracker also splits each group's budget across your channels.
 
 2. **Sanity-check the result.** Compare cost per SAO to what your unit economics allow (see [Align to the business](02-align-to-the-business.md)). If it does not fit, change the goal, raise conversion rates or lower cost per MQL. Do not quietly cut the budget and keep the goal.
 
-3. **Split capture and creation.** Default 60% capture, 40% creation (rule of thumb). Capture (paid search) harvests demand that exists and is limited by search volume. Creation (LinkedIn, ABM, sponsorships) builds demand and pays back later. Shift toward creation as branded search and direct traffic grow, which signals capture is near its ceiling. Credit creation's pipeline where you can (self-reported source, influenced pipeline) and label it lower confidence. See [Measurement](03-measurement.md).
+3. **Split capture and creation.** Default 60% capture, 40% creation (rule of thumb). What each is and how to measure it: [Measurement](03-measurement.md#measuring-capture-vs-creation). Capture is limited by how many people search, so shift toward creation as branded search and direct traffic grow, which signals capture is near its ceiling. Credit creation's pipeline where you can (self-reported source, [influenced pipeline](03-measurement.md#influenced-pipeline)) and label it lower confidence.
 
 4. **Allocate by marginal return.** The question is not which channel has the best average cost per SAO, but where the next $1,000 buys the most. Signs a campaign can take more: high impression share lost to budget, cost per SAO well under target, a steady trend. Signs it is saturated: cost per SAO rising as spend rises, impression share already high. Default moves:
    - Move money in steps of 20% or less per campaign, then wait one to two weeks to read the result (rule of thumb).
@@ -41,7 +41,7 @@ Budget is the biggest lever you control. Work it back from the pipeline goal so 
    - Keep 10% of budget for tests (rule of thumb). See [Experimentation](07-experimentation.md).
    Google's Performance Planner shows forecast curves for search campaigns. The [Ad Budget Optimizer](https://www.redavio.com/budget-optimizer) recommends these moves and applies them on Google and Microsoft Ads after you approve.
 
-5. **Pace weekly.** Each Monday compare spend month to date against plan month to date (monthly plan × share of the month gone). Defaults:
+5. **Pace weekly.** Each Monday compare spend month to date against plan month to date (monthly plan × share of the month gone). The plan tolerance is ±10% (rule of thumb). The pacing alert in [Operations and AI](10-operations-and-ai.md) is set wider, at 15%, so it only fires on real misses. Defaults:
    - Within ±10% of plan: leave it.
    - More than 10% over: lower daily budgets on the campaigns with the worst marginal return.
    - More than 10% under: check for limits (low bids, narrow targeting, disapproved ads) before adding budget.
@@ -66,6 +66,7 @@ Budget is the biggest lever you control. Work it back from the pipeline goal so 
 - **Capture campaigns limited by budget with good cost per SAO:** move money there from the weakest campaign.
 - **Capture spend rising but SAOs flat:** you are past saturation. Hold spend and fund creation or tests.
 - **Underspending all month:** look for bid targets set too tight or narrow targeting before raising budgets.
+- **Behind on pipeline mid-quarter:** size the gap in SAOs (gap ÷ deal size) and work it back to MQLs with fill.py. Spend added now mostly lands next quarter, because SAOs lag MQLs by your MQL-to-SAO time. So: (1) fix stage-rate problems first (fastest), (2) move budget to capture campaigns limited by budget with good cost per SAO (they convert inside the quarter), (3) if the gap is still over 20% of the quarter's goal (rule of thumb), reset the goal in writing with your manager and Finance now, not at quarter end, and explain the drivers in the next weekly update ([Reporting](08-reporting-and-communication.md)).
 - **Finance cuts the budget:** rerun the math and show the new pipeline the budget buys. Agree a new goal in writing.
 - **Creation shows no pipeline after one quarter:** check self-reported answers and target-account engagement before cutting; its window is longer.
 
@@ -101,7 +102,7 @@ Budget is the biggest lever you control. Work it back from the pipeline goal so 
 - [Marketing Correlation Analyzer](https://www.redavio.com/marketing-correlation) (Exists): checks whether spend and pipeline move together.
 - [performance-os](https://github.com/redavio/performance-os) (Exists, open source): paid search budget rebalancing and pacing in depth.
 - Driver breakdown (Planned): which drivers explain a gap to goal.
-- All Redavio tools are reachable by your AI through the [Redavio MCP server](https://www.redavio.com/mcp).
+- All Redavio tools are listed in the [Library](https://www.redavio.com) and run through the [Redavio MCP server](https://www.redavio.com/mcp-server).
 
 **Outside sources**
 

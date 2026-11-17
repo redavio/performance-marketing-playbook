@@ -1,41 +1,50 @@
-Budget tracker,Acme Analytics,
+Budget tracker,Your company,
 Inputs,Value,Source
-Pipeline goal,3000000,yours
+Revenue goal,,optional
+SAO → Closed won (win rate),0.2,default (rule of thumb)
+Pipeline goal,3000000,yours (wins over a revenue goal)
 Average deal size,30000,yours
 Months in period,12,default (rule of thumb)
+Start date,2027-01-04,yours
 MQL → SQL,0.25,default (rule of thumb)
 SQL → SAO,0.6,default (rule of thumb)
-SAO → Closed won (win rate),0.2,default (rule of thumb)
 Capture share of budget,0.6,default (rule of thumb)
-Creation share of budget,=1-B9,formula
+Creation share of budget,=1-B11,formula
 "Cost per MQL, capture",300,default (rule of thumb)
 "Cost per MQL, creation",450,default (rule of thumb)
 ,,
 Plan (worked back from the goal),Total,Per month
-SAOs needed,=B3/B4,=B15/$B$5
-SQLs needed,=B15/B7,=B16/$B$5
-MQLs needed,=B16/B6,=B17/$B$5
-Blended cost per MQL,=B11*B9+B12*B10,
-Budget,=B17*B18,=B19/$B$5
-Capture budget,=B19*B9,=B20/$B$5
-Creation budget,=B19*B10,=B21/$B$5
-Expected closed-won revenue,=B3*B8,=B22/$B$5
-Cost per SAO,=B19/B15,
-Pipeline to spend,=B3/B19,
+SAOs needed,=B5/B6,=B17/$B$7
+SQLs needed,=B17/B10,=B18/$B$7
+MQLs needed,=B18/B9,=B19/$B$7
+Blended cost per MQL,=1/(B11/B13+B12/B14),
+Budget,=B19*B20,=B21/$B$7
+Capture budget,=B21*B11,=B22/$B$7
+Creation budget,=B21*B12,=B23/$B$7
+Capture MQLs,=B22/B13,=B24/$B$7
+Creation MQLs,=B23/B14,=B25/$B$7
+Expected closed-won revenue,=B5*B4,=B26/$B$7
+Cost per SAO,=B21/B17,
+Pipeline to spend,=B5/B21,
 ,,
-Month,Planned spend,Actual spend,Planned MQLs,Actual MQLs,Planned SQLs,Actual SQLs,Planned SAOs,Actual SAOs,Planned pipeline,"Actual pipeline, capture","Actual pipeline, creation (lower confidence)",Pipeline vs plan
-Month 1,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K27="""","""",(K27+N(L27))/J27-1)"
-Month 2,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K28="""","""",(K28+N(L28))/J28-1)"
-Month 3,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K29="""","""",(K29+N(L29))/J29-1)"
-Month 4,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K30="""","""",(K30+N(L30))/J30-1)"
-Month 5,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K31="""","""",(K31+N(L31))/J31-1)"
-Month 6,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K32="""","""",(K32+N(L32))/J32-1)"
-Month 7,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K33="""","""",(K33+N(L33))/J33-1)"
-Month 8,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K34="""","""",(K34+N(L34))/J34-1)"
-Month 9,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K35="""","""",(K35+N(L35))/J35-1)"
-Month 10,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K36="""","""",(K36+N(L36))/J36-1)"
-Month 11,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K37="""","""",(K37+N(L37))/J37-1)"
-Month 12,=$C$19,,=$C$17,,=$C$16,,=$C$15,,=$B$3/$B$5,,,"=IF(K38="""","""",(K38+N(L38))/J38-1)"
-Total,=SUM(B27:B38),=SUM(C27:C38),=SUM(D27:D38),=SUM(E27:E38),=SUM(F27:F38),=SUM(G27:G38),=SUM(H27:H38),=SUM(I27:I38),=SUM(J27:J38),=SUM(K27:K38),=SUM(L27:L38),"=IF(K39=0,"""",(K39+L39)/J39-1)"
+Budget by channel,Type,Share of its group,Budget,Per month
+Google Ads,capture,0.5,=B22*C31,=D31/$B$7
+Microsoft Ads,capture,0.5,=B22*C32,=D32/$B$7
+LinkedIn Ads,creation,1.0,=B23*C33,=D33/$B$7
 ,,
-Notes,Creation's pipeline is credited from self-reported source and influenced pipeline. Treat it as lower confidence than capture's.,
+Month,Planned spend,Actual spend,Spend vs plan,Planned MQLs,Actual MQLs,Planned SQLs,Actual SQLs,Planned SAOs,Actual SAOs,Actual cost per SAO,Planned pipeline,Actual sourced pipeline,Pipeline vs plan,"Influenced pipeline, creation (lower confidence; not added to sourced)"
+Jan 2027,=$C$21,,"=IF(C36="""","""",C36/B36-1)",=$C$19,,=$C$18,,=$C$17,,"=IF(OR(C36="""",J36="""",J36=0),"""",C36/J36)",=B5/$B$7,,"=IF(M36="""","""",M36/L36-1)",
+Feb 2027,=$C$21,,"=IF(C37="""","""",C37/B37-1)",=$C$19,,=$C$18,,=$C$17,,"=IF(OR(C37="""",J37="""",J37=0),"""",C37/J37)",=B5/$B$7,,"=IF(M37="""","""",M37/L37-1)",
+Mar 2027,=$C$21,,"=IF(C38="""","""",C38/B38-1)",=$C$19,,=$C$18,,=$C$17,,"=IF(OR(C38="""",J38="""",J38=0),"""",C38/J38)",=B5/$B$7,,"=IF(M38="""","""",M38/L38-1)",
+Apr 2027,=$C$21,,"=IF(C39="""","""",C39/B39-1)",=$C$19,,=$C$18,,=$C$17,,"=IF(OR(C39="""",J39="""",J39=0),"""",C39/J39)",=B5/$B$7,,"=IF(M39="""","""",M39/L39-1)",
+May 2027,=$C$21,,"=IF(C40="""","""",C40/B40-1)",=$C$19,,=$C$18,,=$C$17,,"=IF(OR(C40="""",J40="""",J40=0),"""",C40/J40)",=B5/$B$7,,"=IF(M40="""","""",M40/L40-1)",
+Jun 2027,=$C$21,,"=IF(C41="""","""",C41/B41-1)",=$C$19,,=$C$18,,=$C$17,,"=IF(OR(C41="""",J41="""",J41=0),"""",C41/J41)",=B5/$B$7,,"=IF(M41="""","""",M41/L41-1)",
+Jul 2027,=$C$21,,"=IF(C42="""","""",C42/B42-1)",=$C$19,,=$C$18,,=$C$17,,"=IF(OR(C42="""",J42="""",J42=0),"""",C42/J42)",=B5/$B$7,,"=IF(M42="""","""",M42/L42-1)",
+Aug 2027,=$C$21,,"=IF(C43="""","""",C43/B43-1)",=$C$19,,=$C$18,,=$C$17,,"=IF(OR(C43="""",J43="""",J43=0),"""",C43/J43)",=B5/$B$7,,"=IF(M43="""","""",M43/L43-1)",
+Sep 2027,=$C$21,,"=IF(C44="""","""",C44/B44-1)",=$C$19,,=$C$18,,=$C$17,,"=IF(OR(C44="""",J44="""",J44=0),"""",C44/J44)",=B5/$B$7,,"=IF(M44="""","""",M44/L44-1)",
+Oct 2027,=$C$21,,"=IF(C45="""","""",C45/B45-1)",=$C$19,,=$C$18,,=$C$17,,"=IF(OR(C45="""",J45="""",J45=0),"""",C45/J45)",=B5/$B$7,,"=IF(M45="""","""",M45/L45-1)",
+Nov 2027,=$C$21,,"=IF(C46="""","""",C46/B46-1)",=$C$19,,=$C$18,,=$C$17,,"=IF(OR(C46="""",J46="""",J46=0),"""",C46/J46)",=B5/$B$7,,"=IF(M46="""","""",M46/L46-1)",
+Dec 2027,=$C$21,,"=IF(C47="""","""",C47/B47-1)",=$C$19,,=$C$18,,=$C$17,,"=IF(OR(C47="""",J47="""",J47=0),"""",C47/J47)",=B5/$B$7,,"=IF(M47="""","""",M47/L47-1)",
+Total,=SUM(B36:B47),=SUM(C36:C47),"=IF(COUNT(C36:C47)=0,"""",SUM(C36:C47)/SUMIF(C36:C47,""<>"",B36:B47)-1)",=SUM(E36:E47),=SUM(F36:F47),=SUM(G36:G47),=SUM(H36:H47),=SUM(I36:I47),=SUM(J36:J47),"=IF(J48=0,"""",C48/J48)",=SUM(L36:L47),=SUM(M36:M47),"=IF(COUNT(M36:M47)=0,"""",SUM(M36:M47)/SUMIF(M36:M47,""<>"",L36:L47)-1)",=SUM(O36:O47)
+,,
+Notes,"Variance columns compare actuals only against the months that have actuals. Influenced pipeline is shown, never added to sourced pipeline. Format the rate cells (B4, B9-B12) as percentages.",

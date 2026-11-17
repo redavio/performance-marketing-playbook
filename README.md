@@ -34,7 +34,7 @@ Enter a pipeline goal and your average deal size. Everything else has a default 
 | Deliverable | File |
 | --- | --- |
 | Planning doc | [planning-doc.md](deliverables/planning-doc.md) |
-| Budget tracker (import into Google Sheets; formulas stay live) | [budget-tracker.csv](examples/acme/budget-tracker.csv) |
+| Budget tracker (import into Google Sheets; formulas stay live) | [budget-tracker.csv](deliverables/budget-tracker.csv) |
 | Recurring tasks (import into ClickUp, Asana or Notion) | [recurring-tasks.csv](deliverables/recurring-tasks.csv) |
 | Slide template | [slide-template.pptx](deliverables/slide-template.pptx), [outline](deliverables/slide-template.md) |
 | Weekly update and monthly report | [regular-updates.md](deliverables/regular-updates.md) |

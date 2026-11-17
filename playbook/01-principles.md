@@ -17,7 +17,6 @@ These are plain names on purpose. Rename them if your company already has its ow
 
 - Which of the four is weakest today? That is usually where the next quarter's work should go.
 - Does every initiative on your list tie to at least one principle? If not, why is it on the list?
-- Does your company already have values or operating principles these should map to?
 - Who else needs to use them: Sales, RevOps, Finance, an agency? Agree the names with them once.
 
 ## Do this
@@ -28,7 +27,7 @@ These are plain names on purpose. Rename them if your company already has its ow
    - Rapid experimentation: there is a written backlog, at least one test is live, and finished tests have a readout. See [Experimentation](07-experimentation.md).
    - Data driven: conversions flow from the CRM back to the ad platforms, each conversion has a value, and you know which numbers are proven and which are only attributed. See [Measurement](03-measurement.md).
 2. **Fix the lowest score first.** Default order when everything is weak: data driven (you cannot judge anything without tracking), then strategic alignment, then operational excellence, then rapid experimentation.
-3. **Tag every initiative.** Add a "Principle" column to your initiative list, planning doc and experiment database. Give each item one primary tag and at most one secondary tag. Example:
+3. **Tag every initiative.** Add a "Principle" column to your initiative list, the Priorities table in the planning doc, and the experiment database. Give each item one primary tag and at most one secondary tag. Example:
 
    | Initiative | Primary | Secondary |
    | --- | --- | --- |
@@ -38,8 +37,8 @@ These are plain names on purpose. Rename them if your company already has its ow
    | Agree MQL and SQL definitions with Sales | Strategic alignment | |
 
 4. **Check the balance each quarter.** Count initiatives by primary tag. If one principle has none, ask whether that is a choice or a gap. A rule of thumb: no principle should go a full quarter with zero initiatives.
-5. **Use them in reviews.** Open the QBR with the four scores and how they moved. See [Reporting and communication](08-reporting-and-communication.md) and the [planning and review decks](../deliverables/planning-and-review-decks.md).
-6. **Put the tags in your files.** The [planning doc](../deliverables/planning-doc.md), [experiment database](../deliverables/experiment-database.csv) and [recurring tasks](../deliverables/recurring-tasks.csv) all have a principle column. Keep the names identical across them so you can filter.
+5. **Use them in reviews.** Add a principles scorecard slide to the QBR: the four scores and how they moved. See [Reporting and communication](08-reporting-and-communication.md) and the [planning and review decks](../deliverables/planning-and-review-decks.md).
+6. **Put the tags in your files.** The Priorities table in the [planning doc](../deliverables/planning-doc.md) has a Principle column, and so do the [experiment database](../deliverables/experiment-database.csv) and [recurring tasks](../deliverables/recurring-tasks.csv). Keep the names identical across them so you can filter.
 
 ## If you see X, do Y
 
@@ -66,7 +65,7 @@ These are plain names on purpose. Rename them if your company already has its ow
 
 - You score 1 or 2 on data driven and do not know where tracking breaks.
 - Leadership disagrees on the goal you are aligning to. That is a business decision, not a marketing one.
-- You cannot tell which of the four is weakest. An outside audit takes a day and saves a quarter.
+- You cannot tell which of the four is weakest.
 
 ## Tools and sources
 
@@ -75,7 +74,7 @@ These are plain names on purpose. Rename them if your company already has its ow
 - [Marketing Correlation Analyzer](https://www.redavio.com/marketing-correlation) (Exists): checks whether two metrics move together. Useful for the data driven score.
 - [Ad Budget Optimizer](https://www.redavio.com/budget-optimizer) (Exists, free): applies budget changes on Google and Microsoft Ads after you approve. An operational excellence quick win.
 - [performance-os](https://github.com/redavio/performance-os) (Exists, open source): the deep paid search how-to, organized the same way.
-- All Redavio tools are reachable by your AI through the [Redavio MCP server](https://www.redavio.com/mcp).
+- All Redavio tools are listed in the [Library](https://www.redavio.com) and run through the [Redavio MCP server](https://www.redavio.com/mcp-server).
 
 **Outside sources**
 

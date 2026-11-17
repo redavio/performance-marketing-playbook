@@ -14,15 +14,14 @@ Demand capture puts you in front of people who are already looking for what you 
 
 ## Do this
 
-1. **Judge capture on pipeline.** Primary measure: pipeline and revenue, and cost per qualified opportunity (SAO). Use a short window: the sales cycle from click to SAO, not to closed won.
-2. **Prove cause with two checks.** Brand vs non-brand: report them apart, because brand gets credit for demand other channels created. Geo holdouts: pause a channel in a few matched regions and compare SAOs.
-3. **Start in this order:** paid search on your highest-intent terms, conversion rate fixes on the pages that traffic lands on, then SEO, review sites and AI answers, which compound but take months.
+1. **Measure it as capture.** Judge it on pipeline and cost per SAO, with brand and non-brand reported apart. The measures, window and proof of cause are in [Measurement](03-measurement.md#measuring-capture-vs-creation).
+2. **Start in this order:** paid search on your highest-intent terms, conversion rate fixes on the pages that traffic lands on, then SEO, review sites and AI answers, which compound but take months.
 
 ### Paid search (Google and Microsoft)
 
 1. **Structure:** separate campaigns for brand, non-brand and competitor terms, so each gets its own budget and target. Group ad groups by theme, one theme per landing page.
-2. **Match types and negatives:** start non-brand on phrase and exact. Add broad match only once smart bidding has conversion data. Build shared negative lists (jobs, login, free, support, students) on day one.
-3. **Bidding:** start on Maximize Conversions. Move to a target CPA once you have steady volume (rule of thumb: 30 conversions in 30 days). Once offline conversions send back SAOs with values, bid to value.
+2. **Match types and negatives:** match types set how closely a search must match your keyword. Exact match serves on searches with the same meaning; phrase match on searches that include that meaning; broad match on any related search. Start non-brand on phrase and exact. Google recommends broad match, but while conversion data is thin, phrase and exact give you control over which searches and how much spend you buy. Add broad match once offline conversions flow back and smart bidding (Google's and Microsoft's automated bidding, which sets a bid for each auction toward conversions or value) has steady volume. Build shared negative lists (jobs, login, free, support, students) on day one.
+3. **Bidding:** start on Maximize Conversions. Move to a target CPA once you have steady volume (rule of thumb: about 30 conversions in 30 days per campaign). Once offline conversions send back SAOs with values, bid to value.
 4. **Query mining:** review the search terms report ([Google Ads Help](https://support.google.com/google-ads/answer/2472708)) weekly. Add negatives for junk, promote converting queries to keywords.
 5. **Microsoft:** copy the Google build to Microsoft Ads. Start it at a small share of search spend (rule of thumb: 10 to 20%) and scale on cost per SAO.
 6. **Primary metric:** cost per SAO, split brand vs non-brand.
@@ -53,7 +52,7 @@ Demand capture puts you in front of people who are already looking for what you 
 2. Ask happy customers for reviews every quarter, through Customer Success. A steady flow beats a one-time push.
 3. Test paid placements only after you have enough recent reviews to win the comparison.
 4. Track self-reported "how did you hear about us" mentions of the site, plus SAOs from it.
-5. **Primary metric:** SAOs and influenced pipeline from review-site traffic.
+5. **Primary metric:** SAOs and [influenced pipeline](03-measurement.md#influenced-pipeline) from review-site traffic.
 6. **Best sources:** [G2 for vendors](https://sell.g2.com/); [Exit Five](https://www.exitfive.com/) for how B2B teams use review sites in practice.
 
 ### Website conversion rate optimization
@@ -69,9 +68,10 @@ Demand capture puts you in front of people who are already looking for what you 
 
 - **Brand cost per SAO looks great, non-brand looks bad:** report them apart. Do not move non-brand budget into brand; brand is capped by demand.
 - **Lots of leads, few SAOs:** check search terms and lead quality with Sales before raising bids. Bid to SQL or SAO with offline conversions.
-- **Impression share lost to budget on converting non-brand terms:** shift budget in (see [06-budget.md](06-budget.md)).
+- **Impression share lost to budget on converting non-brand terms:** impression share is the share of eligible impressions your ads won; "lost to budget" is the share missed because the budget ran out. Shift budget in (see [06-budget.md](06-budget.md)).
 - **Branded search falls:** look at demand creation, not search bids ([11-cross-channel-and-working-with-others.md](11-cross-channel-and-working-with-others.md)).
 - **Competitors named in AI answers, you are not:** add comparison pages and earn third-party mentions before buying anything.
+- **Paid traffic landing pages convert below 2% to a form fill (rule of thumb for B2B demo pages):** check message match between ad and page, form length and page speed first; then run Landing Page Analyzer on your pages and turn the top attributes into tests ([Experimentation](07-experimentation.md)). Measure visit-to-form rate and form-to-SQL rate separately; a page can raise one and lower the other.
 - **Landing page converts well in tests but SAOs don't move:** check which leads Sales accepted, and whether tracking counts duplicates.
 
 ## Metrics
@@ -107,9 +107,9 @@ Demand capture puts you in front of people who are already looking for what you 
 - [Landing Page Analyzer](https://www.redavio.com/attribute-engine-landing-pages) (Exists): which page attributes drive conversion.
 - [Google Sheet to CMS Landing Page](https://www.redavio.com/google-sheet-to-cms-landing-page) (Exists): landing pages in bulk, one per offer or keyword theme.
 - [Marketing Correlation Analyzer](https://www.redavio.com/marketing-correlation) (Exists): for example, do AI mentions and direct traffic move together.
-- All are reachable by your AI through the [Redavio MCP server](https://www.redavio.com/mcp).
+- All Redavio tools are listed in the [Library](https://www.redavio.com) and run through the [Redavio MCP server](https://www.redavio.com/mcp-server).
 
-**Best outside sources**
+**Outside sources**
 
 - [Search Engine Land](https://searchengineland.com/): search news and how-to.
 - [Google Ads Help](https://support.google.com/google-ads): official setup docs, such as [enhanced conversions](https://support.google.com/google-ads/answer/9888656) and [offline conversions with GCLID](https://support.google.com/google-ads/answer/7012522).

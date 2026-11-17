@@ -16,9 +16,9 @@ Channels affect each other, so judging each one alone gives wrong answers: cut L
 1. **Map how channels feed each other.** Default model: creation (social, video, ABM, sponsorships, AI-answer mentions) raises branded search, direct traffic and AI-answer traffic; capture collects it. Write this into the [planning doc](../deliverables/planning-doc.md).
 2. **Watch the leading signals weekly:** branded search volume, direct traffic, self-reported source, and named mentions in AI answers. When creation spend changes, these should move within weeks.
 3. **Test the links, don't assume them.** Run a holdout (pause creation in some regions or accounts) and compare branded search and SAOs. Use correlation to find candidates, a lift test to confirm.
-4. **One plan, one report.** All channels in one [budget tracker](../deliverables/budget-tracker.csv) against one pipeline goal, split capture vs creation. One weekly update ([regular-updates.md](../deliverables/regular-updates.md)), with capture on short-window pipeline and creation on reach, velocity and self-reported source, side by side.
-5. **Credit by confidence, not by channel.** High: SAOs tracked from click. Medium: self-reported source. Lower: influenced pipeline. Show all three; never add them into one number that double counts.
-6. **Sales:** agree the target account list, what counts as an accepted opportunity, and lead follow-up time (rule of thumb: same business day for demo requests). Meet weekly on lead quality. Close the loop: rejected leads come back with a reason.
+4. **One plan, one report.** All channels in one [budget tracker](../deliverables/budget-tracker.csv) against one pipeline goal, split capture vs creation. One weekly update ([regular-updates.md](../deliverables/regular-updates.md)), with capture and creation side by side, each on its own measures ([Measurement](03-measurement.md#measuring-capture-vs-creation)).
+5. **Credit by confidence, not by channel.** High: SAOs tracked from click. Medium: self-reported source. Lower: [influenced pipeline](03-measurement.md#influenced-pipeline). Show all three; never add them into one number that double counts.
+6. **Sales:** agree the target account list, what counts as an accepted opportunity, and lead follow-up time (rule of thumb: demo requests the same business day, other MQLs within one business day). Meet weekly on lead quality. Close the loop: rejected leads come back with a reason.
 7. **RevOps:** own tracking together. Hidden form fields for click IDs and UTMs, offline conversion uploads, stage dates on every opportunity. Write changes down before they ship.
 8. **Finance:** share the budget math ([06-budget.md](06-budget.md)) and agree monthly flex rules up front: how far you can move spend between channels without asking. Report cost per SAO and pipeline-to-spend ratio, the numbers they trust.
 9. **Agencies and vendors:** you own the accounts, the data and the goals. Give them the pipeline goal, not a click goal. Ask for change logs and admin access you control. Review them monthly on SAOs and pipeline, not their own dashboards. Never let a vendor's report be the only source of truth.
@@ -27,7 +27,7 @@ Channels affect each other, so judging each one alone gives wrong answers: cut L
 
 - **Branded search drops after a creation cut:** that was creation's effect. Restore it or plan for lower capture pipeline.
 - **Every channel claims the same deal:** switch the report to confidence tiers (step 5).
-- **Sales says leads are bad:** pull ten rejected leads together. Fix targeting, routing or follow-up time, whichever is actually broken.
+- **Sales says leads are bad:** pull 20 recent leads Sales rejected and review them together (the same check as in [Align to the business](02-align-to-the-business.md)). Fix targeting, routing or follow-up time, whichever is actually broken.
 - **Finance wants to cut creation first:** show the holdout result and branded search trend ([08-reporting-and-communication.md](08-reporting-and-communication.md)).
 - **An agency reports wins you can't find in the CRM:** reconcile to CRM SAOs before the next invoice.
 
@@ -58,9 +58,9 @@ Channels affect each other, so judging each one alone gives wrong answers: cut L
 - [Marketing Correlation Analyzer](https://www.redavio.com/marketing-correlation) (Exists): do creation spend, AI mentions, branded search and direct traffic move together.
 - Account Influence Analyzer (Planned): which ABM touches move accounts through stages, measured by lift.
 - [Ad Budget Optimizer](https://www.redavio.com/budget-optimizer) (Exists, free): budget changes on Google and Microsoft Ads after you approve.
-- All are reachable by your AI through the [Redavio MCP server](https://www.redavio.com/mcp).
+- All Redavio tools are listed in the [Library](https://www.redavio.com) and run through the [Redavio MCP server](https://www.redavio.com/mcp-server).
 
-**Best outside sources**
+**Outside sources**
 
 - [Refine Labs blog](https://www.refinelabs.com/blog): how creation drives capture, and self-reported attribution.
 - [LinkedIn B2B Institute](https://business.linkedin.com/marketing-solutions/b2b-institute): research on B2B brand building and long-term effects.
