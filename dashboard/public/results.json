@@ -1,0 +1,738 @@
+{
+  "company": "Acme Analytics",
+  "start_date": "2027-01-04",
+  "months": 12,
+  "period": "12 months from Jan 2027",
+  "labels": {
+    "MQL": "MQL",
+    "SQL": "SQL",
+    "MQLs": "MQLs",
+    "SQLs": "SQLs",
+    "sql_meaning": "meeting scheduled"
+  },
+  "inputs": [
+    {
+      "key": "pipeline_goal",
+      "label": "pipeline goal",
+      "value": 3000000.0,
+      "default": false
+    },
+    {
+      "key": "revenue_goal",
+      "label": "revenue goal",
+      "value": null,
+      "default": false
+    },
+    {
+      "key": "deal_size",
+      "label": "average deal size",
+      "value": 30000.0,
+      "default": false
+    },
+    {
+      "key": "company",
+      "label": "company name",
+      "value": "Acme Analytics",
+      "default": false
+    },
+    {
+      "key": "months",
+      "label": "period length",
+      "value": 12,
+      "default": true
+    },
+    {
+      "key": "start_date",
+      "label": "start date",
+      "value": "2027-01-04",
+      "default": false
+    },
+    {
+      "key": "motion",
+      "label": "motion",
+      "value": "sales-led",
+      "default": true
+    },
+    {
+      "key": "mql_to_sql",
+      "label": "MQL to SQL rate",
+      "value": 0.25,
+      "default": true
+    },
+    {
+      "key": "sql_to_sao",
+      "label": "SQL to SAO rate",
+      "value": 0.6,
+      "default": true
+    },
+    {
+      "key": "win_rate",
+      "label": "win rate",
+      "value": 0.2,
+      "default": true
+    },
+    {
+      "key": "sales_cycle_days",
+      "label": "sales cycle",
+      "value": 90,
+      "default": true
+    },
+    {
+      "key": "creation_share",
+      "label": "creation share of budget",
+      "value": 0.3,
+      "default": true
+    },
+    {
+      "key": "cost_per_mql_capture",
+      "label": "cost per MQL from capture channels",
+      "value": 300.0,
+      "default": true
+    },
+    {
+      "key": "channels",
+      "label": "channels",
+      "value": [
+        "Google Ads",
+        "Microsoft Ads",
+        "LinkedIn Ads"
+      ],
+      "default": true
+    },
+    {
+      "key": "crm",
+      "label": "CRM",
+      "value": "HubSpot",
+      "default": true
+    },
+    {
+      "key": "competitors",
+      "label": "competitors",
+      "value": [
+        "Northwind",
+        "Contoso"
+      ],
+      "default": false
+    },
+    {
+      "key": "icp",
+      "label": "ICP",
+      "value": "US software companies, 200-2,000 employees; VP Finance and Controllers",
+      "default": false
+    }
+  ],
+  "defaults_used": [
+    "period length",
+    "motion",
+    "MQL to SQL rate",
+    "SQL to SAO rate",
+    "win rate",
+    "sales cycle",
+    "creation share of budget",
+    "cost per MQL from capture channels",
+    "channels",
+    "CRM"
+  ],
+  "plan": {
+    "pipeline_goal": 3000000.0,
+    "revenue": 600000.0,
+    "saos": 100.0,
+    "sqls": 166.66666666666669,
+    "mqls": 666.6666666666667,
+    "closed_won": 20.0,
+    "budget": 285714.2857142858,
+    "capture_budget": 200000.00000000003,
+    "creation_budget": 85714.28571428577,
+    "cost_per_sao": 2857.142857142858,
+    "capture_cost_per_sao": 2000.0000000000002,
+    "pipeline_to_spend": 10.499999999999996
+  },
+  "monthly": {
+    "pipeline_goal": 250000.0,
+    "revenue": 50000.0,
+    "saos": 8.333333333333334,
+    "sqls": 13.888888888888891,
+    "mqls": 55.555555555555564,
+    "closed_won": 1.6666666666666667,
+    "budget": 23809.523809523816,
+    "capture_budget": 16666.666666666668,
+    "creation_budget": 7142.857142857148
+  },
+  "funnel": [
+    {
+      "key": "pipeline_goal",
+      "label": "Pipeline goal",
+      "total": 3000000.0,
+      "per_month": 250000.0,
+      "how": "your goal"
+    },
+    {
+      "key": "saos",
+      "label": "SAOs",
+      "total": 100.0,
+      "per_month": 8.333333333333334,
+      "how": "pipeline goal ÷ $30,000 deal size"
+    },
+    {
+      "key": "sqls",
+      "label": "SQLs",
+      "total": 166.66666666666669,
+      "per_month": 13.888888888888891,
+      "how": "SAOs ÷ 60% SQL to SAO"
+    },
+    {
+      "key": "mqls",
+      "label": "MQLs from capture",
+      "total": 666.6666666666667,
+      "per_month": 55.555555555555564,
+      "how": "SQLs ÷ 25% MQL to SQL"
+    },
+    {
+      "key": "capture_budget",
+      "label": "Capture budget",
+      "total": 200000.00000000003,
+      "per_month": 16666.666666666668,
+      "how": "MQLs × $300 cost per MQL"
+    },
+    {
+      "key": "creation_budget",
+      "label": "Creation budget",
+      "total": 85714.28571428577,
+      "per_month": 7142.857142857148,
+      "how": "30% of the total, on top; not counted toward the goal"
+    },
+    {
+      "key": "budget",
+      "label": "Total budget",
+      "total": 285714.2857142858,
+      "per_month": 23809.523809523816,
+      "how": "capture budget ÷ (1 − 30%)"
+    }
+  ],
+  "budget": {
+    "channels": [
+      {
+        "channel": "Google Ads",
+        "type": "capture",
+        "share_of_group": 0.5,
+        "total": 100000.00000000001,
+        "per_month": 8333.333333333334
+      },
+      {
+        "channel": "Microsoft Ads",
+        "type": "capture",
+        "share_of_group": 0.5,
+        "total": 100000.00000000001,
+        "per_month": 8333.333333333334
+      },
+      {
+        "channel": "LinkedIn Ads",
+        "type": "creation",
+        "share_of_group": 1.0,
+        "total": 85714.28571428577,
+        "per_month": 7142.857142857148
+      }
+    ],
+    "months": [
+      {
+        "month": "Jan 2027",
+        "spend": 23809.523809523816,
+        "by_channel": {
+          "Google Ads": 8333.333333333334,
+          "Microsoft Ads": 8333.333333333334,
+          "LinkedIn Ads": 7142.857142857148
+        },
+        "mqls": 55.555555555555564,
+        "sqls": 13.888888888888891,
+        "saos": 8.333333333333334,
+        "pipeline": 250000.0
+      },
+      {
+        "month": "Feb 2027",
+        "spend": 23809.523809523816,
+        "by_channel": {
+          "Google Ads": 8333.333333333334,
+          "Microsoft Ads": 8333.333333333334,
+          "LinkedIn Ads": 7142.857142857148
+        },
+        "mqls": 55.555555555555564,
+        "sqls": 13.888888888888891,
+        "saos": 8.333333333333334,
+        "pipeline": 250000.0
+      },
+      {
+        "month": "Mar 2027",
+        "spend": 23809.523809523816,
+        "by_channel": {
+          "Google Ads": 8333.333333333334,
+          "Microsoft Ads": 8333.333333333334,
+          "LinkedIn Ads": 7142.857142857148
+        },
+        "mqls": 55.555555555555564,
+        "sqls": 13.888888888888891,
+        "saos": 8.333333333333334,
+        "pipeline": 250000.0
+      },
+      {
+        "month": "Apr 2027",
+        "spend": 23809.523809523816,
+        "by_channel": {
+          "Google Ads": 8333.333333333334,
+          "Microsoft Ads": 8333.333333333334,
+          "LinkedIn Ads": 7142.857142857148
+        },
+        "mqls": 55.555555555555564,
+        "sqls": 13.888888888888891,
+        "saos": 8.333333333333334,
+        "pipeline": 250000.0
+      },
+      {
+        "month": "May 2027",
+        "spend": 23809.523809523816,
+        "by_channel": {
+          "Google Ads": 8333.333333333334,
+          "Microsoft Ads": 8333.333333333334,
+          "LinkedIn Ads": 7142.857142857148
+        },
+        "mqls": 55.555555555555564,
+        "sqls": 13.888888888888891,
+        "saos": 8.333333333333334,
+        "pipeline": 250000.0
+      },
+      {
+        "month": "Jun 2027",
+        "spend": 23809.523809523816,
+        "by_channel": {
+          "Google Ads": 8333.333333333334,
+          "Microsoft Ads": 8333.333333333334,
+          "LinkedIn Ads": 7142.857142857148
+        },
+        "mqls": 55.555555555555564,
+        "sqls": 13.888888888888891,
+        "saos": 8.333333333333334,
+        "pipeline": 250000.0
+      },
+      {
+        "month": "Jul 2027",
+        "spend": 23809.523809523816,
+        "by_channel": {
+          "Google Ads": 8333.333333333334,
+          "Microsoft Ads": 8333.333333333334,
+          "LinkedIn Ads": 7142.857142857148
+        },
+        "mqls": 55.555555555555564,
+        "sqls": 13.888888888888891,
+        "saos": 8.333333333333334,
+        "pipeline": 250000.0
+      },
+      {
+        "month": "Aug 2027",
+        "spend": 23809.523809523816,
+        "by_channel": {
+          "Google Ads": 8333.333333333334,
+          "Microsoft Ads": 8333.333333333334,
+          "LinkedIn Ads": 7142.857142857148
+        },
+        "mqls": 55.555555555555564,
+        "sqls": 13.888888888888891,
+        "saos": 8.333333333333334,
+        "pipeline": 250000.0
+      },
+      {
+        "month": "Sep 2027",
+        "spend": 23809.523809523816,
+        "by_channel": {
+          "Google Ads": 8333.333333333334,
+          "Microsoft Ads": 8333.333333333334,
+          "LinkedIn Ads": 7142.857142857148
+        },
+        "mqls": 55.555555555555564,
+        "sqls": 13.888888888888891,
+        "saos": 8.333333333333334,
+        "pipeline": 250000.0
+      },
+      {
+        "month": "Oct 2027",
+        "spend": 23809.523809523816,
+        "by_channel": {
+          "Google Ads": 8333.333333333334,
+          "Microsoft Ads": 8333.333333333334,
+          "LinkedIn Ads": 7142.857142857148
+        },
+        "mqls": 55.555555555555564,
+        "sqls": 13.888888888888891,
+        "saos": 8.333333333333334,
+        "pipeline": 250000.0
+      },
+      {
+        "month": "Nov 2027",
+        "spend": 23809.523809523816,
+        "by_channel": {
+          "Google Ads": 8333.333333333334,
+          "Microsoft Ads": 8333.333333333334,
+          "LinkedIn Ads": 7142.857142857148
+        },
+        "mqls": 55.555555555555564,
+        "sqls": 13.888888888888891,
+        "saos": 8.333333333333334,
+        "pipeline": 250000.0
+      },
+      {
+        "month": "Dec 2027",
+        "spend": 23809.523809523816,
+        "by_channel": {
+          "Google Ads": 8333.333333333334,
+          "Microsoft Ads": 8333.333333333334,
+          "LinkedIn Ads": 7142.857142857148
+        },
+        "mqls": 55.555555555555564,
+        "sqls": 13.888888888888891,
+        "saos": 8.333333333333334,
+        "pipeline": 250000.0
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "id": "D1",
+      "name": "Check alerts and confirm yesterday's conversions recorded on every channel",
+      "cadence": "Daily",
+      "recurrence": "Every weekday",
+      "owner": "Paid acquisition owner",
+      "section": "10 Operations and AI",
+      "principle": "Operational excellence",
+      "first_due": "2027-01-04",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/10-operations-and-ai.md"
+    },
+    {
+      "id": "D2",
+      "name": "Check spend pacing vs budget by channel",
+      "cadence": "Daily",
+      "recurrence": "Every weekday",
+      "owner": "Paid acquisition owner",
+      "section": "06 Budget",
+      "principle": "Data driven",
+      "first_due": "2027-01-04",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/06-budget.md"
+    },
+    {
+      "id": "D3",
+      "name": "Scan for flagrant spend: spending with no conversions above the alert threshold",
+      "cadence": "Daily",
+      "recurrence": "Every weekday",
+      "owner": "Paid acquisition owner",
+      "section": "06 Budget",
+      "principle": "Data driven",
+      "first_due": "2027-01-04",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/06-budget.md"
+    },
+    {
+      "id": "D4",
+      "name": "Approve or reject pending change recommendations",
+      "cadence": "Daily",
+      "recurrence": "Every weekday",
+      "owner": "Paid acquisition owner",
+      "section": "10 Operations and AI",
+      "principle": "Operational excellence",
+      "first_due": "2027-01-04",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/10-operations-and-ai.md"
+    },
+    {
+      "id": "W1",
+      "name": "Review search terms: add negatives, promote converting terms",
+      "cadence": "Weekly",
+      "recurrence": "Every week",
+      "owner": "Paid acquisition owner",
+      "section": "04 Demand capture",
+      "principle": "Data driven",
+      "first_due": "2027-01-04",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/04-demand-capture.md"
+    },
+    {
+      "id": "W2",
+      "name": "Review results vs goal by funnel stage and channel",
+      "cadence": "Weekly",
+      "recurrence": "Every week",
+      "owner": "Paid acquisition owner",
+      "section": "08 Reporting and communication",
+      "principle": "Strategic alignment",
+      "first_due": "2027-01-04",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/08-reporting-and-communication.md"
+    },
+    {
+      "id": "W3",
+      "name": "Check live tests: end any at sample size, launch the next from the backlog",
+      "cadence": "Weekly",
+      "recurrence": "Every week",
+      "owner": "Paid acquisition owner",
+      "section": "07 Experimentation",
+      "principle": "Rapid experimentation",
+      "first_due": "2027-01-04",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/07-experimentation.md"
+    },
+    {
+      "id": "W4",
+      "name": "Review ads and assets: disapprovals, low performers, fatigue",
+      "cadence": "Weekly",
+      "recurrence": "Every week",
+      "owner": "Paid acquisition owner",
+      "section": "04 Demand capture",
+      "principle": "Rapid experimentation",
+      "first_due": "2027-01-04",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/04-demand-capture.md"
+    },
+    {
+      "id": "W5",
+      "name": "Review lead quality and MQL to SQL rate with Sales",
+      "cadence": "Weekly",
+      "recurrence": "Every week",
+      "owner": "Sales leader",
+      "section": "11 Cross-channel and working with others",
+      "principle": "Strategic alignment",
+      "first_due": "2027-01-04",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/11-cross-channel-and-working-with-others.md"
+    },
+    {
+      "id": "W6",
+      "name": "Log every change made this week in the change log",
+      "cadence": "Weekly",
+      "recurrence": "Every week",
+      "owner": "Paid acquisition owner",
+      "section": "10 Operations and AI",
+      "principle": "Operational excellence",
+      "first_due": "2027-01-04",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/10-operations-and-ai.md"
+    },
+    {
+      "id": "W7",
+      "name": "Send the weekly update (Monday by noon)",
+      "cadence": "Weekly",
+      "recurrence": "Every week",
+      "owner": "Paid acquisition owner",
+      "section": "08 Reporting and communication",
+      "principle": "Strategic alignment",
+      "first_due": "2027-01-04",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/08-reporting-and-communication.md"
+    },
+    {
+      "id": "M1",
+      "name": "Update the budget tracker with plan vs actual",
+      "cadence": "Monthly",
+      "recurrence": "Every month",
+      "owner": "Paid acquisition owner",
+      "section": "06 Budget",
+      "principle": "Data driven",
+      "first_due": "2027-02-01",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/06-budget.md"
+    },
+    {
+      "id": "M2",
+      "name": "Reconcile platform spend with invoices",
+      "cadence": "Monthly",
+      "recurrence": "Every month",
+      "owner": "Finance",
+      "section": "11 Cross-channel and working with others",
+      "principle": "Operational excellence",
+      "first_due": "2027-02-01",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/11-cross-channel-and-working-with-others.md"
+    },
+    {
+      "id": "M3",
+      "name": "Check offline conversions and CRM stages match what ad platforms received",
+      "cadence": "Monthly",
+      "recurrence": "Every month",
+      "owner": "RevOps",
+      "section": "03 Measurement",
+      "principle": "Data driven",
+      "first_due": "2027-02-01",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/03-measurement.md"
+    },
+    {
+      "id": "M4",
+      "name": "Rebalance budget across channels and campaigns by marginal return",
+      "cadence": "Monthly",
+      "recurrence": "Every month",
+      "owner": "Paid acquisition owner",
+      "section": "06 Budget",
+      "principle": "Data driven",
+      "first_due": "2027-02-01",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/06-budget.md"
+    },
+    {
+      "id": "M5",
+      "name": "Groom the experiment backlog and re-score ideas with ICS",
+      "cadence": "Monthly",
+      "recurrence": "Every month",
+      "owner": "Paid acquisition owner",
+      "section": "07 Experimentation",
+      "principle": "Rapid experimentation",
+      "first_due": "2027-02-01",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/07-experimentation.md"
+    },
+    {
+      "id": "M6",
+      "name": "Review competitors and the news brief: new ads, offers, pricing, platform changes",
+      "cadence": "Monthly",
+      "recurrence": "Every month",
+      "owner": "Paid acquisition owner",
+      "section": "12 What's new",
+      "principle": "Strategic alignment",
+      "first_due": "2027-02-01",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/12-whats-new.md"
+    },
+    {
+      "id": "M7",
+      "name": "Refresh audiences and lists: target accounts, customer exclusions, retargeting",
+      "cadence": "Monthly",
+      "recurrence": "Every month",
+      "owner": "Paid acquisition owner",
+      "section": "05 Demand creation",
+      "principle": "Operational excellence",
+      "first_due": "2027-02-01",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/05-demand-creation.md"
+    },
+    {
+      "id": "M8",
+      "name": "Send the monthly report (by the 5th business day)",
+      "cadence": "Monthly",
+      "recurrence": "Every month",
+      "owner": "Paid acquisition owner",
+      "section": "08 Reporting and communication",
+      "principle": "Strategic alignment",
+      "first_due": "2027-02-01",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/08-reporting-and-communication.md"
+    },
+    {
+      "id": "Q1",
+      "name": "Audit each account: structure, settings, tracking, conversion setup",
+      "cadence": "Quarterly",
+      "recurrence": "Every 3 months",
+      "owner": "Paid acquisition owner",
+      "section": "04 Demand capture",
+      "principle": "Operational excellence",
+      "first_due": "2027-04-05",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/04-demand-capture.md"
+    },
+    {
+      "id": "Q2",
+      "name": "Back-test ICS scores against test results in the test log",
+      "cadence": "Quarterly",
+      "recurrence": "Every 3 months",
+      "owner": "Paid acquisition owner",
+      "section": "07 Experimentation",
+      "principle": "Rapid experimentation",
+      "first_due": "2027-04-05",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/07-experimentation.md"
+    },
+    {
+      "id": "Q3",
+      "name": "Replace default conversion rates and costs with the last 3 months of actuals",
+      "cadence": "Quarterly",
+      "recurrence": "Every 3 months",
+      "owner": "RevOps",
+      "section": "06 Budget",
+      "principle": "Data driven",
+      "first_due": "2027-04-05",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/06-budget.md"
+    },
+    {
+      "id": "Q4",
+      "name": "Plan or run one proof-of-cause check (brand vs non-brand, geo or account holdout)",
+      "cadence": "Quarterly",
+      "recurrence": "Every 3 months",
+      "owner": "Paid acquisition owner",
+      "section": "03 Measurement",
+      "principle": "Data driven",
+      "first_due": "2027-04-05",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/03-measurement.md"
+    },
+    {
+      "id": "Q5",
+      "name": "Write the quarter postmortem",
+      "cadence": "Quarterly",
+      "recurrence": "Every 3 months",
+      "owner": "Paid acquisition owner",
+      "section": "08 Reporting and communication",
+      "principle": "Strategic alignment",
+      "first_due": "2027-04-05",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/08-reporting-and-communication.md"
+    },
+    {
+      "id": "Q6",
+      "name": "Build next quarter's plan and budget (agree it in the QBR)",
+      "cadence": "Quarterly",
+      "recurrence": "Every 3 months",
+      "owner": "Marketing lead",
+      "section": "06 Budget",
+      "principle": "Strategic alignment",
+      "first_due": "2027-03-22",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/06-budget.md"
+    },
+    {
+      "id": "Q7",
+      "name": "Run the QBR (last 2 weeks of the quarter)",
+      "cadence": "Quarterly",
+      "recurrence": "Every 3 months",
+      "owner": "Marketing lead",
+      "section": "08 Reporting and communication",
+      "principle": "Strategic alignment",
+      "first_due": "2027-03-22",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/08-reporting-and-communication.md"
+    },
+    {
+      "id": "Y1",
+      "name": "Write the annual postmortem",
+      "cadence": "Yearly",
+      "recurrence": "Every year",
+      "owner": "Marketing lead",
+      "section": "08 Reporting and communication",
+      "principle": "Strategic alignment",
+      "first_due": "2028-01-03",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/08-reporting-and-communication.md"
+    },
+    {
+      "id": "Y2",
+      "name": "Build the annual plan and budget with Finance (draft 8 weeks before the year, final 4 weeks before)",
+      "cadence": "Yearly",
+      "recurrence": "Every year",
+      "owner": "Marketing lead",
+      "section": "06 Budget",
+      "principle": "Strategic alignment",
+      "first_due": "2027-11-08",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/06-budget.md"
+    },
+    {
+      "id": "Y3",
+      "name": "Review tracking and attribution end to end",
+      "cadence": "Yearly",
+      "recurrence": "Every year",
+      "owner": "RevOps",
+      "section": "03 Measurement",
+      "principle": "Data driven",
+      "first_due": "2028-01-03",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/03-measurement.md"
+    },
+    {
+      "id": "Y4",
+      "name": "Review tools, vendors and contracts before renewals",
+      "cadence": "Yearly",
+      "recurrence": "Every year",
+      "owner": "Marketing lead",
+      "section": "10 Operations and AI",
+      "principle": "Operational excellence",
+      "first_due": "2028-01-03",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/10-operations-and-ai.md"
+    },
+    {
+      "id": "Y5",
+      "name": "Clean up user access on every ad account and tool",
+      "cadence": "Yearly",
+      "recurrence": "Every year",
+      "owner": "Paid acquisition owner",
+      "section": "10 Operations and AI",
+      "principle": "Operational excellence",
+      "first_due": "2028-01-03",
+      "how": "From the playbook's operating rhythm. How: https://github.com/redavio/performance-marketing-playbook/blob/main/playbook/10-operations-and-ai.md"
+    }
+  ]
+}

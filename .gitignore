@@ -1,3 +1,6 @@
 __pycache__/
 .DS_Store
 out/
+*.pyc
+dashboard/node_modules/
+dashboard/dist/

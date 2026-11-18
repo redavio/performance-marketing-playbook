@@ -55,7 +55,28 @@ A filled example for a made-up company is in [examples/acme](examples/acme).
 python3 fill.py plan examples/acme-inputs.json --out my-plan   # all seven deliverables
 python3 fill.py math examples/acme-inputs.json                 # just the numbers
 python3 fill.py calibrate my-experiments.csv                   # back-test your ICS scores
+python3 -m pytest                                              # tests
 ```
+
+## Dashboard
+
+`dashboard/` is a React app that shows the plan, the budget and the task rhythm. It reads one file, `results.json`, written by `fill.py`, and computes nothing itself, so it always shows the same numbers as the deliverables.
+
+```bash
+python3 fill.py math my-inputs.json --json dashboard/public/results.json   # or add --json to plan
+cd dashboard && npm install && npm run dev
+```
+
+`results.json` holds the inputs used (and which are defaults), the funnel from goal to budget, the budget by channel and month, and the tasks with first due dates. The one in `dashboard/public/` is the Acme example. To share the dashboard, deploy the `dashboard` folder to Vercel (or any static host) with your `results.json` in `public/`. Anyone can also open a results file with the "Open results file" button, or point at one with `?src=`.
+
+## Make it yours
+
+The playbook is a starting point, not a finished product. Fork it and change anything:
+
+- **Brand the dashboard.** It ships unbranded. Set your name and logo in `dashboard/src/brand.ts` and your colors at the top of `dashboard/src/style.css`.
+- **Change the screens or build your own app.** Everything on screen comes from one file, `results.json`. Build your own React app, internal tool or AI agent on it.
+- **Change the defaults and the math.** Defaults are in `fill.py` (`DEFAULTS`) and [defaults.md](deliverables/defaults.md); the math is in `compute()` in `fill.py`.
+- **Change the deliverables.** The templates are in `deliverables/`; `{{name}}` fields are filled from your inputs.
 
 ## Principles
 

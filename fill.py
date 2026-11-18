@@ -10,6 +10,9 @@ checks they agree, so change both together.
     python3 fill.py plan inputs.json --out out  # write every deliverable, filled in
     python3 fill.py calibrate experiments.csv   # back-test ICS scores against results
 
+Add --json results.json to math or plan to also write the inputs, plan, budget and tasks
+as one file for the dashboard (dashboard/), which shows these numbers and computes none.
+
 inputs.json needs pipeline_goal (or revenue_goal) and deal_size. Everything else is
 optional; see DEFAULTS below or deliverables/defaults.md.
 """
@@ -395,6 +398,71 @@ def plan(inp, outdir):
     return sorted(p.name for p in outdir.iterdir())
 
 
+def results(inp, m):
+    """Everything the dashboard shows, as one JSON-ready dict. Numbers are unrounded; the
+    dashboard only formats them."""
+    lab = labels(inp)
+    months = inp["months"]
+    given = lambda k: not empty(inp.get(k))
+    inputs = [
+        {"key": "pipeline_goal", "label": "pipeline goal", "value": inp.get("pipeline_goal"), "default": False},
+        {"key": "revenue_goal", "label": "revenue goal", "value": inp.get("revenue_goal"), "default": False},
+        {"key": "deal_size", "label": "average deal size", "value": inp["deal_size"], "default": False},
+    ]
+    for k in DEFAULTS:
+        v = inp[k].isoformat() if k == "start_date" else inp[k]
+        inputs.append({"key": k, "label": LABELS[k], "value": v, "default": k in inp["defaulted"]})
+    funnel = [
+        {"key": "pipeline_goal", "label": "Pipeline goal", "total": m["pipeline_goal"], "per_month": m["monthly"]["pipeline_goal"],
+         "how": "your goal" if given("pipeline_goal") else f"revenue goal ÷ {pct(inp['win_rate'])} win rate"},
+        {"key": "saos", "label": "SAOs", "total": m["saos"], "per_month": m["monthly"]["saos"],
+         "how": f"pipeline goal ÷ {money(inp['deal_size'])} deal size"},
+        {"key": "sqls", "label": lab["SQLs"], "total": m["sqls"], "per_month": m["monthly"]["sqls"],
+         "how": f"SAOs ÷ {pct(inp['sql_to_sao'])} {lab['SQL']} to SAO"},
+        {"key": "mqls", "label": f"{lab['MQLs']} from capture", "total": m["mqls"], "per_month": m["monthly"]["mqls"],
+         "how": f"{lab['SQLs']} ÷ {pct(inp['mql_to_sql'])} {lab['MQL']} to {lab['SQL']}"},
+        {"key": "capture_budget", "label": "Capture budget", "total": m["capture_budget"], "per_month": m["monthly"]["capture_budget"],
+         "how": f"{lab['MQLs']} × {money(inp['cost_per_mql_capture'])} cost per {lab['MQL']}"},
+        {"key": "creation_budget", "label": "Creation budget", "total": m["creation_budget"], "per_month": m["monthly"]["creation_budget"],
+         "how": f"{pct(inp['creation_share'])} of the total, on top; not counted toward the goal"},
+        {"key": "budget", "label": "Total budget", "total": m["budget"], "per_month": m["monthly"]["budget"],
+         "how": f"capture budget ÷ (1 − {pct(inp['creation_share'])})"},
+    ]
+    chans = channel_plan(inp, m)
+    channels = [{"channel": c, "type": g, "share_of_group": s, "total": b, "per_month": b / months} for c, g, s, b in chans]
+    month_rows = [{
+        "month": month_label(inp["start_date"], i),
+        "spend": m["monthly"]["budget"],
+        "by_channel": {c["channel"]: c["per_month"] for c in channels},
+        "mqls": m["monthly"]["mqls"], "sqls": m["monthly"]["sqls"], "saos": m["monthly"]["saos"],
+        "pipeline": m["monthly"]["pipeline_goal"],
+    } for i in range(months)]
+    rows = list(csv.DictReader(io.StringIO(recurring_tasks_csv(inp))))
+    tasks = [{"id": r["ID"], "name": r["Task name"], "cadence": r["Cadence"], "recurrence": r["Recurrence"],
+              "owner": r["Owner role"], "section": r["Playbook section"], "principle": r["Principle"],
+              "first_due": r["First due"], "how": r["Description"]} for r in rows]
+    return {
+        "company": inp["company"],
+        "start_date": inp["start_date"].isoformat(),
+        "months": months,
+        "period": f"{months} months from {month_label(inp['start_date'], 0)}",
+        "labels": lab,
+        "inputs": inputs,
+        "defaults_used": [LABELS[k] for k in inp["defaulted"]],
+        "plan": {k: v for k, v in m.items() if k != "monthly"},
+        "monthly": m["monthly"],
+        "funnel": funnel,
+        "budget": {"channels": channels, "months": month_rows},
+        "tasks": tasks,
+    }
+
+
+def write_json(inp, m, path):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(results(inp, m), indent=2, ensure_ascii=False) + "\n")
+
+
 def calibrate(path):
     """Back-test: how close were predicted lifts to actual lifts, by Confidence and by Impact score?"""
     rows = list(csv.DictReader(open(path, newline="")))
@@ -438,6 +506,8 @@ def main(argv):
         print(calibrate(argv[2]))
         return 0
     inp = resolve(json.load(open(argv[2])))
+    if "--json" in argv:
+        write_json(inp, compute(inp), argv[argv.index("--json") + 1])
     if argv[1] == "math":
         m = compute(inp)
         print(json.dumps({k: round(v, 2) for k, v in m.items() if k != "monthly"}, indent=2))
