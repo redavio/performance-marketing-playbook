@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/brand.ts","./src/main.tsx","./src/types.ts"],"version":"5.6.3"}
+{"root":["./src/app.tsx","./src/brand.ts","./src/main.tsx","./src/types.ts","./src/components/budgetview.tsx","./src/components/cards.tsx","./src/components/planview.tsx","./src/components/playbook.tsx","./src/components/tasksview.tsx","./src/components/ui.ts"],"version":"5.6.3"}
